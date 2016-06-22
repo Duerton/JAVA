@@ -5,31 +5,38 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import javax.swing.JButton;
 
 public class main {
 
     public static void main(String[] args) {
-        boolean teste = true;
         BD bd = new BD();
+        TelaLogin telalogin = new TelaLogin();
+        bd.cadastrarGerentePadrao();
+        telalogin.montarTelaLogin(bd);
+
+        /*boolean teste = true;
+        Map<Integer, Funcionario> listaFuncionarios = new HashMap();
+        Map<Integer, Gerente> listaGerente = new HashMap();
         Telas tela = new Telas();
         Scanner teclado = new Scanner(System.in);
         while (teste) {
             Funcionario funcionario = tela.cadastrarPessoa();
-            bd.listaFuncionarios.put(funcionario.getIDFunc(), funcionario);
+            listaFuncionarios.put(funcionario.getIDFunc(), funcionario);
             System.out.println("Funcionario " + funcionario.getNome() + " possui id: " + funcionario.getIDFunc());
 
             System.out.println("1 - Informe o id");
             Integer id = teclado.nextInt();
-            if (bd.listaGerente.containsKey(id)) {
-                if (tela.loginPessoa(bd.listaGerente.get(id))) {
+            if (listaGerente.containsKey(id)) {
+                if (tela.loginPessoa(listaGerente.get(id))) {
                     //tela gerente
                 }
-            } else if (bd.listaFuncionarios.containsKey(id)) {
+            } else if (listaFuncionarios.containsKey(id)) {
                 System.out.println("Informe o login");
                 String login1 = teclado.next();
                 System.out.println("Informe a senha");
                 String senha = teclado.next();
-                if (tela.loginPessoa(bd.listaFuncionarios.get(id))) {
+                if (tela.loginPessoa(listaFuncionarios.get(id))) {
                     // tela funcionario
                 }
             } else {
@@ -41,7 +48,7 @@ public class main {
             Funcionario funcionario = new Funcionario(nome);
             listaFuncionarios.put(funcionario.getIDFunc(),funcionario);
             System.out.println("Funcionario "+funcionario.getNome()+" possui id: "+funcionario.getIDFunc());
-             */
+             
 
             System.out.println("");
 
