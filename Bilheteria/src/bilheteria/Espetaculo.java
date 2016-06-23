@@ -8,10 +8,10 @@ public class Espetaculo {
     private static int totalID;
     private final int IDEspetaculo;
     private SimpleDateFormat data;
-    private int quantAssentos;
+    private int quantTotalAssentos,quantAssentosDisponiveis;
     private float valoringresso;
 
-    public Espetaculo(String titulo, String tipo, String cidade, String endereco, String descricao, float valoringresso) {
+    public Espetaculo(String titulo, String tipo, String cidade, String endereco, String descricao, float valoringresso, int quantTotalAssentos) {
         this.título = titulo;
         this.cidade = cidade;
         this.data = data;
@@ -21,6 +21,23 @@ public class Espetaculo {
         this.valoringresso = valoringresso;
         Espetaculo.totalID++;
         this.IDEspetaculo = totalID;
+        this.quantTotalAssentos = quantTotalAssentos;
+        quantAssentosDisponiveis = quantTotalAssentos;
+    }
+    
+    public boolean verificarDisponibilidadeAssentos(){
+        if(this.quantAssentosDisponiveis > 0){
+            return true;
+        }
+        return false;
+    }
+    
+    public int getQuantAssentosDisponiveis(){
+        return quantAssentosDisponiveis;
+    }
+    
+    public void atualizarQuantAssentos(int quant){
+        this.quantAssentosDisponiveis = this.quantAssentosDisponiveis-quant;
     }
 
     public String getTitulo() {

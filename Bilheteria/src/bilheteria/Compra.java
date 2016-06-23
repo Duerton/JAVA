@@ -4,13 +4,11 @@ public class Compra {
 
     private static int totalIDCompra;
     private final int IDCompra;
-    private final String numcartao;
     private final Espetaculo espetaculo;
     private final Cliente cliente;
     private final int quantidade;
 
-    public Compra(String numcartao, Espetaculo espetaculo, Cliente cliente, int quantidade) {
-        this.numcartao = numcartao;
+    public Compra(Espetaculo espetaculo, Cliente cliente, int quantidade) {
         this.espetaculo = espetaculo;
         this.cliente = cliente;
         this.quantidade = quantidade;
@@ -18,7 +16,7 @@ public class Compra {
         this.IDCompra = totalIDCompra;
     }
 
-    public boolean inserirDadosCartao(String nomeCartao, int numCartao, int validade, int codigo) {
+    public boolean conferirDadosCartao(String nomecartao, int numcartao, int validade, int codigo) {
         return true;
     }
 
@@ -28,6 +26,10 @@ public class Compra {
 
     public int getQuantidade() {
         return this.quantidade;
+    }
+    
+    public Integer getIDCompra(){
+        return this.IDCompra;
     }
 
     public void imprimeCompra() {
@@ -41,6 +43,7 @@ public class Compra {
         System.out.println("Titulo: " + espetaculo.getTipo());
         System.out.println("Cidade: " + espetaculo.getCidade());
         System.out.println("Endereco: " + espetaculo.getEndereco());
+        System.out.println("Valor do ingresso: " + espetaculo.getValorIngresso());
         System.out.println("###################");
         System.out.println("Quantidade de ingressos comprados: " + this.quantidade);
         System.out.println("Valor de cada ingresso: " + espetaculo.getValorIngresso());

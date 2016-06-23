@@ -9,7 +9,7 @@ import java.util.Map;
 public class BD {
 
     private Map<String, Cliente> bdClientes = new HashMap();
-    private Collection<Espetaculo> bdEspetaculo = new HashSet();
+    private Collection<Espetaculo> bdEspetaculo = new ArrayList();
     private Map<Integer, Compra> bdCompras = new HashMap();
 
     public boolean confereLogin(String login) {
@@ -35,7 +35,9 @@ public class BD {
             System.out.println("Titulo: " + espetaculo.getTipo());
             System.out.println("Cidade: " + espetaculo.getCidade());
             System.out.println("Endereco: " + espetaculo.getEndereco());
+            System.out.println("Valor do ingresso: " + espetaculo.getValorIngresso());
             System.out.println("###################");
+            System.out.println(" ");
         }
     }
 
@@ -43,8 +45,17 @@ public class BD {
         bdEspetaculo.add(espetaculo);
     }
     
-    public Espetaculo getEspetaculo(){
-        return 
+    public Espetaculo getEspetaculo(int numespetaculo){
+        for(Espetaculo espetaculo : bdEspetaculo){
+            if(numespetaculo == espetaculo.getIDEspetaculo()){
+                return espetaculo;
+            }
+        }
+        return null;
+    }
+    
+    public void inserirCompra(Integer num,Compra compra){
+        this.bdCompras.put(num, compra);
     }
 
 }

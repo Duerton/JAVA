@@ -44,32 +44,41 @@ public class Tela {
         return false;
     }
 
-    public void visualizacaoCliente(Cliente cliente,BD bd) {
+    public void visualizacaoCliente(Cliente cliente, BD bd) {
         boolean teste = true;
         while (teste) {
-            System.out.println("Escolha uma opção");
+            System.out.println(" ");
+            System.out.println("Escolha a opção desejada");
             System.out.println("1- Detalhes da conta");
             System.out.println("2- Ingressos adquiridos");
             System.out.println("3- Comprar ingresso");
             System.out.println("4- Tela incial");
+            System.out.println(" ");
             Scanner teclado = new Scanner(System.in);
             int opcao = teclado.nextInt();
             switch (opcao) {
                 case 1:
+                    System.out.println("Nome: "+cliente.getNome());
+                    System.out.println("Login: "+cliente.getLogin());
                     System.out.println("Escolha uma opção");
                     System.out.println("1- Alterar nome");
                     System.out.println("2- Alterar senha");
+                    System.out.println("3- Voltar");
+                    System.out.println(" ");
                     opcao = teclado.nextInt();
                     switch (opcao) {
                         case 1:
-                            System.out.println("Informe a alteração do nome");
+                            System.out.println("Informe o novo nome");
                             String nome = teclado.next();
                             cliente.alterarNome(nome);
                             break;
                         case 2:
-                            System.out.println("Informe a alteração da senha");
+                            System.out.println("Informe a nova senha");
                             String senha = teclado.next();
-                            cliente.alterarNome(senha);
+                            cliente.alterarSenha(senha);
+                            break;
+                        case 3:
+
                             break;
                         default:
                             System.out.println("Opcao inválida");
@@ -80,11 +89,51 @@ public class Tela {
                     cliente.visualizarEspetaculosComprados();
                     break;
                 case 3:
-                    System.out.println("Informe o numero de registro do espetaculo que deseja comprar ingresso: ");
+                    System.out.print("Informe o numero de registro do espetaculo que deseja comprar ingresso: ");
                     int numespetaculo = teclado.nextInt();
-                    System.out.println("Informe a quantidade de ingressos a serem comprados: ");
-                    int quantingresso = teclado.nextInt();
-                    cliente.verificarQuantIngresso(quantingresso, bd);
+                    int quantpermitida;
+                    Espetaculo espetaculo = bd.getEspetaculo(numespetaculo);
+                    if (espetaculo.verificarDisponibilidadeAssentos()) {
+                        int quantdisponivel1 = espetaculo.getQuantAssentosDisponiveis();
+                        System.out.println("Há " + quantdisponivel1 + " ingressos disponiveis");
+                        int quantdisponivel2 = 4 - cliente.verificarQuantIngresso(espetaculo);
+                        if (quantdisponivel1 <= quantdisponivel2) {
+                            quantpermitida = quantdisponivel1;
+                        } else {
+                            quantpermitida = quantdisponivel2;
+                        }
+                        if (quantpermitida > 0) {
+                            System.out.println("Voce pode comprar no máximo " + quantpermitida + " ingressos para este evento");
+
+                            System.out.print("Informe a quantidade de ingressos a serem comprados: ");
+                            int quantingresso = teclado.nextInt();
+                            if (quantingresso > quantpermitida) {
+                                System.out.println("Não é possivel efetuar a compra com este total de ingressos");
+                            } else {
+                                Compra compra = new Compra(espetaculo, cliente, quantingresso);
+                                System.out.println("Informe o nome exatamente como descrito no cartão de crédito");
+                                teclado.nextLine();
+                                String nomecartao = teclado.nextLine();
+                                System.out.println("Informe o numero do cartão de crédito");
+                                int numcartao = teclado.nextInt();
+                                System.out.println("Informe a validade do cartão de crédito");
+                                int validade = teclado.nextInt();
+                                System.out.println("Informe o codigo do cartão de crédito");
+                                int codigo = teclado.nextInt();
+                                if (compra.conferirDadosCartao(nomecartao, numcartao, validade, codigo)) {
+                                    espetaculo.atualizarQuantAssentos(quantingresso);
+                                    bd.inserirCompra(compra.getIDCompra(), compra);
+                                    cliente.inserirCompraCliente(compra);
+                                    compra.imprimeCompra();
+                                }
+                            }
+                        } else {
+                            System.out.println("Voce já comprou o limite máximo de ingressos permitido para este evento");
+                        }
+                    } else {
+                        System.out.println("Não há mais assentos disponiveis para este evento");
+                    }
+
                     break;
                 default:
                     teste = false;
