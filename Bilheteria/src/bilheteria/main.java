@@ -11,8 +11,8 @@ public class main {
         Scanner teclado = new Scanner(System.in);
         
         
-        Espetaculo espetaculo1 = new Espetaculo("Matriz", "Ficçao", "Niterói", "Na esquina", "Futurista", 20.00f);
-        Espetaculo espetaculo2 = new Espetaculo("Rei Leão", "Infantil", "São Gonçalo", "Outra esquina", "Animação", 15.00f);
+        Espetaculo espetaculo1 = new Espetaculo("Matriz", "Ficçao", "Niterói", "Na esquina", "Futurista", 20.00f, 200);
+        Espetaculo espetaculo2 = new Espetaculo("Rei Leão", "Infantil", "São Gonçalo", "Outra esquina", "Animação", 15.00f, 200);
         bd.inserirEspetaculos(espetaculo1);
         bd.inserirEspetaculos(espetaculo2);
         
@@ -21,11 +21,13 @@ public class main {
         
         
         while (teste) {
+            System.out.println(" ");
             System.out.println("Bem vindo a Bilheteria");
             System.out.println("Veja abaixo os espetáculos disponiveis");
             System.out.println("Para aquisição de ingresso é necessário estar logado");
-            bd.visualizarEspetaculos();
+            System.out.println(" ");
             System.out.println("##########################");
+            bd.visualizarEspetaculos();
             System.out.println("1- Novo cadastro");
             System.out.println("2- Logar");
             System.out.println("3- Sair");

@@ -40,11 +40,11 @@ public class Cliente {
     public void alterarSenha(String senha) {
         this.senha = senha;
     }
-    
-    public int verificarQuantIngresso(int quant, BD bd){
+
+    public int verificarQuantIngresso(Espetaculo espetaculo) {
         int quantidade = 0;
-        for(Compra compra : totalcompras){
-            if(compra.getEspetaculo().getIDEspetaculo()){
+        for (Compra compra : totalcompras) {
+            if (compra.getEspetaculo().getIDEspetaculo() == espetaculo.getIDEspetaculo()) {
                 quantidade += compra.getQuantidade();
             }
         }
@@ -52,14 +52,17 @@ public class Cliente {
     }
 
     public void visualizarEspetaculosComprados() {
-        for (Compra compra : totalcompras) {
-            System.out.println("Registro: " + compra.getEspetaculo().getIDEspetaculo());
-            System.out.println("Titulo: " + compra.getEspetaculo().getTitulo());
-            System.out.println("Descrição: " + compra.getEspetaculo().getDescricao());
-            System.out.println("Titulo: " + compra.getEspetaculo().getTipo());
-            System.out.println("Cidade: " + compra.getEspetaculo().getCidade());
-            System.out.println("Endereco: " + compra.getEspetaculo().getEndereco());
-            System.out.println("###################");
+        if (totalcompras.isEmpty()) {
+            System.out.println("Nenhum espetaculo comprado");
+        } else {
+            for (Compra compra : totalcompras) {
+                compra.imprimeCompra();
+                System.out.println(" ");
+            }
         }
+    }
+
+    public void inserirCompraCliente(Compra compra) {
+        this.totalcompras.add(compra);
     }
 }
