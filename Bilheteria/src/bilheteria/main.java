@@ -11,10 +11,14 @@ public class main {
         Scanner teclado = new Scanner(System.in);
         
         
-        Espetaculo espetaculo1 = new Espetaculo("Matriz", "Ficçao", "Niterói", "Na esquina", "Futurista", 20.00f, 200);
-        Espetaculo espetaculo2 = new Espetaculo("Rei Leão", "Infantil", "São Gonçalo", "Outra esquina", "Animação", 15.00f, 200);
+        Espetaculo espetaculo1 = new Espetaculo("Matriz", "Cinema", "Niterói", "Na esquina", "Futurista", 20.00f, 200, "10/11/2015", "15/06/2016");
+        Espetaculo espetaculo2 = new Espetaculo("O relógio", "Teatro", "Rio de Janeiro", "Outra esquina", "Drama", 25.00f, 150, "14/03/2016", "20/06/2016");
+        Espetaculo espetaculo3 = new Espetaculo("Rei Leão", "Teatro Infantil", "São Gonçalo", "Outra esquina", "Animação", 15.00f, 200, "12/02/2016", "15/06/2017");
         bd.inserirEspetaculos(espetaculo1);
         bd.inserirEspetaculos(espetaculo2);
+        bd.inserirEspetaculos(espetaculo3);
+        
+        bd.retirarFilmesAntigos();
         
         Cliente auxiliar = new Cliente("duerton", 30, "duerton", "root");
         bd.inserirCliente("duerton", auxiliar);
