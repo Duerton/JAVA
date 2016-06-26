@@ -84,15 +84,4 @@ public class BD {
             return dataEspetaculo;
         }
     }
-
-    public void retirarFilmesAntigos() {
-        Date dataatual = new Date(System.currentTimeMillis());
-        System.out.println("" + dataatual);
-        /*for(Espetaculo espetaculo : bdEspetaculo){
-            if(espetaculo.getDataFim().after(dataatual)){
-                bdEspetaculo.remove(espetaculo);
-            }
-        }*/
-    }
-
 }
