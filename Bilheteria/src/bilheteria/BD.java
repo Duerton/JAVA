@@ -28,18 +28,15 @@ public class BD {
         bdClientes.put(login, cliente);
     }
 
-    public void visualizarEspetaculos() {
+    public void visualizarTodosEspetaculos() {
         for (Espetaculo espetaculo : bdEspetaculo) {
-            System.out.println("Registro: " + espetaculo.getIDEspetaculo());
-            System.out.println("Titulo: " + espetaculo.getTitulo());
-            System.out.println("Descrição: " + espetaculo.getDescricao());
-            System.out.println("Titulo: " + espetaculo.getTipo());
-            System.out.println("Cidade: " + espetaculo.getCidade());
-            System.out.println("Endereco: " + espetaculo.getEndereco());
-            System.out.println("Valor do ingresso: " + espetaculo.getValorIngresso());
-            System.out.println("Data de Estreia: " + espetaculo.getDataEstreia());
-            System.out.println("###################");
-            System.out.println(" ");
+            espetaculo.imprimeEspetaculo();
+        }
+    }
+
+    public void visualizarEspetaculos(ArrayList<Espetaculo> selecaoEspetaculos) {
+        for (Espetaculo espetaculo : selecaoEspetaculos) {
+            espetaculo.imprimeEspetaculo();
         }
     }
 
@@ -60,9 +57,37 @@ public class BD {
         this.bdCompras.put(num, compra);
     }
 
+    public ArrayList buscarFilmesCidade(String cidade) {
+        ArrayList<Espetaculo> cidadeEspetaculo = new ArrayList();
+        for (Espetaculo espetaculo : bdEspetaculo) {
+            if (espetaculo.getCidade().equals(cidade)) {
+                cidadeEspetaculo.add(espetaculo);
+            }
+        }
+        if (cidadeEspetaculo.isEmpty()) {
+            return null;
+        } else {
+            return cidadeEspetaculo;
+        }
+    }
+
+    public ArrayList buscarFilmesData(Date data) {
+        ArrayList<Espetaculo> dataEspetaculo = new ArrayList();
+        for (Espetaculo espetaculo : bdEspetaculo) {
+            if (espetaculo.verificarExibicao(data)) {
+                dataEspetaculo.add(espetaculo);
+            }
+        }
+        if (dataEspetaculo.isEmpty()) {
+            return null;
+        } else {
+            return dataEspetaculo;
+        }
+    }
+
     public void retirarFilmesAntigos() {
         Date dataatual = new Date(System.currentTimeMillis());
-        System.out.println(""+dataatual);
+        System.out.println("" + dataatual);
         /*for(Espetaculo espetaculo : bdEspetaculo){
             if(espetaculo.getDataFim().after(dataatual)){
                 bdEspetaculo.remove(espetaculo);

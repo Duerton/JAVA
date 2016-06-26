@@ -87,12 +87,34 @@ public class Espetaculo {
     }
 
     public String getDataEstreia() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(this.dataEstreia);
-        
+
     }
 
-    public Date getDataFim() {
-        return this.dataFim;
+    public String getDataFim() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(this.dataFim);
+    }
+    
+    public boolean verificarExibicao(Date data){
+        if((this.dataEstreia.before(data)) && (this.dataFim.after(data))){
+            return true;
+        }
+        return false;
+    }
+
+    public void imprimeEspetaculo() {
+        System.out.println("Registro: " + this.getIDEspetaculo());
+        System.out.println("Titulo: " + this.getTitulo());
+        System.out.println("Descrição: " + this.getDescricao());
+        System.out.println("Titulo: " + this.getTipo());
+        System.out.println("Cidade: " + this.getCidade());
+        System.out.println("Endereco: " + this.getEndereco());
+        System.out.println("Valor do ingresso: R$" + this.getValorIngresso());
+        System.out.println("Data de Estreia: " + this.getDataEstreia());
+        System.out.println("Data da última exibição " + this.getDataFim());
+        System.out.println("###################");
+        System.out.println(" ");
     }
 }
