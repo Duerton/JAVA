@@ -4,10 +4,10 @@ public class ProdutoPeso extends Produto {
 
     private float quantProdPeso;
 
-    ProdutoPeso(int codigo, float valor) {
-        super(codigo, valor);
+    ProdutoPeso(int codigo, float valor, String nome, String marca, String descricao) {
+        super(codigo, valor, nome, marca, descricao);
     }
-
+    
     public float contQuantProd() {
         return this.quantProdPeso;
     }
@@ -16,11 +16,12 @@ public class ProdutoPeso extends Produto {
         this.quantProdPeso += quant;
     }
 
-    public int retirarQuantProd(float quant) {
+    public boolean retirarQuantProd(float quant) {
         if ((this.quantProdPeso - quant) < 0.0f) {
-            return 0;
+            return false;
         } else {
-            return 1;
+            this.quantProdPeso -= quant;
+            return true;
         }
     }
 }

@@ -60,7 +60,7 @@ public class BD {
     public ArrayList buscarFilmesCidade(String cidade) {
         ArrayList<Espetaculo> cidadeEspetaculo = new ArrayList();
         for (Espetaculo espetaculo : bdEspetaculo) {
-            if (espetaculo.getCidade().equals(cidade)) {
+            if (espetaculo.getCidade().equalsIgnoreCase(cidade)) {
                 cidadeEspetaculo.add(espetaculo);
             }
         }
@@ -84,15 +84,4 @@ public class BD {
             return dataEspetaculo;
         }
     }
-
-    public void retirarFilmesAntigos() {
-        Date dataatual = new Date(System.currentTimeMillis());
-        System.out.println("" + dataatual);
-        /*for(Espetaculo espetaculo : bdEspetaculo){
-            if(espetaculo.getDataFim().after(dataatual)){
-                bdEspetaculo.remove(espetaculo);
-            }
-        }*/
-    }
-
 }
