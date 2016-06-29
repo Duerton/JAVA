@@ -60,7 +60,7 @@ public class BD {
     public ArrayList buscarFilmesCidade(String cidade) {
         ArrayList<Espetaculo> cidadeEspetaculo = new ArrayList();
         for (Espetaculo espetaculo : bdEspetaculo) {
-            if (espetaculo.getCidade().equals(cidade)) {
+            if (espetaculo.getCidade().equalsIgnoreCase(cidade)) {
                 cidadeEspetaculo.add(espetaculo);
             }
         }
