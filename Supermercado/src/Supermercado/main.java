@@ -12,6 +12,7 @@ public class main {
     public static void main(String[] args) {
         BD bd = new BD();
         TelaLogin telalogin = new TelaLogin();
+        bd.inserirProdutoUnidade(001, 10.00f, "Feijão", "Combrasil", "Feijão Tipo 1");
         bd.cadastrarGerentePadrao();
         telalogin.montarTelaLogin(bd);
 

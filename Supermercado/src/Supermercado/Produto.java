@@ -35,5 +35,14 @@ public abstract class Produto {
     public String getDescricao() {
         return this.descricao;
     }
+    
+    public int getCodigo(){
+        return this.codProd;
+    }
+    
+    @Override
+    public String toString(){
+        return this.nome;
+    }
 
 }

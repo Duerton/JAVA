@@ -52,7 +52,7 @@ public class TelaLogin {
         painelLogin.add(senha);
     }
 
-    private void prepararBotaoConfirma(BD bd) {
+    private void prepararBotaoConfirma(final BD bd) {
         JButton confirma = new JButton("Confirma");
         confirma.addActionListener(new ActionListener() {
             @Override
@@ -60,9 +60,8 @@ public class TelaLogin {
                 String aux = login.getText();
                 String auxS = senha.getText();
                 if (bd.loginPessoa(aux, auxS)) {
-                    TelaGerente telagerente = new TelaGerente();
-                    telagerente.pack();
-                    telagerente.setVisible(true);
+                    TelaFuncionario telafuncionario = new TelaFuncionario();
+                    telafuncionario.montarTelaFuncionario(bd);
                 }
             }
         });
