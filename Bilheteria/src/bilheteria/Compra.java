@@ -1,25 +1,32 @@
 package bilheteria;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Compra {
 
     private static int totalIDCompra;
     private final int IDCompra;
-    private final String numcartao;
     private final Espetaculo espetaculo;
     private final Cliente cliente;
     private final int quantidade;
+    private final Date data;
 
-    public Compra(String numcartao, Espetaculo espetaculo, Cliente cliente, int quantidade) {
-        this.numcartao = numcartao;
+    public Compra(Espetaculo espetaculo, Cliente cliente, int quantidade, Date data) {
         this.espetaculo = espetaculo;
         this.cliente = cliente;
         this.quantidade = quantidade;
         Compra.totalIDCompra++;
         this.IDCompra = totalIDCompra;
+        this.data = data;
     }
 
-    public boolean inserirDadosCartao(String nomeCartao, int numCartao, int validade, int codigo) {
-        return true;
+    public boolean ligarCartao(String nomecartao, String numcartao, String validade, String codigo) {
+        CartaoDeCredito cartao = new CartaoDeCredito();
+        if(cartao.conferirDadosCartao(nomecartao, numcartao, validade, codigo)){
+            return true;
+        }
+        return false;        
     }
 
     public Espetaculo getEspetaculo() {
@@ -28,6 +35,10 @@ public class Compra {
 
     public int getQuantidade() {
         return this.quantidade;
+    }
+    
+    public Integer getIDCompra(){
+        return this.IDCompra;
     }
 
     public void imprimeCompra() {
@@ -41,10 +52,14 @@ public class Compra {
         System.out.println("Titulo: " + espetaculo.getTipo());
         System.out.println("Cidade: " + espetaculo.getCidade());
         System.out.println("Endereco: " + espetaculo.getEndereco());
+        System.out.println("Valor do ingresso: R$" + espetaculo.getValorIngresso());
         System.out.println("###################");
         System.out.println("Quantidade de ingressos comprados: " + this.quantidade);
-        System.out.println("Valor de cada ingresso: " + espetaculo.getValorIngresso());
-        System.out.println("Total: " + (this.quantidade * espetaculo.getValorIngresso()));
+        System.out.println("Valor de cada ingresso: R$" + espetaculo.getValorIngresso());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String dataS = sdf.format(this.data);
+        System.out.println("Data do Espetaculo: " + dataS);
+        System.out.println("Total: R$" + (this.quantidade * espetaculo.getValorIngresso()));
         System.out.println("###################");
     }
 }

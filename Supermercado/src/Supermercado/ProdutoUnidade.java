@@ -4,8 +4,8 @@ public class ProdutoUnidade extends Produto {
 
     private int quantProdUnid;
 
-    public ProdutoUnidade(int codigo, float valor) {
-        super(codigo, valor);
+    public ProdutoUnidade(int codigo, float valor, String nome, String marca, String descricao) {
+        super(codigo, valor, nome, marca, descricao);
     }
 
     public int contQuantProd() {
@@ -16,11 +16,12 @@ public class ProdutoUnidade extends Produto {
         this.quantProdUnid += quant;
     }
 
-    public int retirarQuantProd(int quant) {
+    public boolean retirarQuantProd(int quant) {
         if ((this.quantProdUnid - quant) < 0) {
-            return 0;
+            return false;
         } else {
-            return 1;
+            this.quantProdUnid -= quant;
+            return true;
         }
     }
 }
