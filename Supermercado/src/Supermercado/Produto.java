@@ -1,19 +1,17 @@
 package Supermercado;
 
+import java.text.DecimalFormat;
+
 public abstract class Produto {
 
     protected static int codProd;
     protected float valorProd;
     private String nome;
-    private String marca;
-    private String descricao;
 
-    Produto(int codigo, float valor, String nome, String marca, String descricao) {
+    Produto(int codigo, float valor, String nome) {
         Produto.codProd = codigo;
         this.valorProd = valor;
         this.nome = nome;
-        this.marca = marca;
-        this.descricao = descricao;
     }
 
     public float getValorProd() {
@@ -27,22 +25,15 @@ public abstract class Produto {
     public String getNome() {
         return this.nome;
     }
-
-    public String getMarca() {
-        return this.marca;
-    }
-
-    public String getDescricao() {
-        return this.descricao;
-    }
-    
+   
     public int getCodigo(){
         return this.codProd;
     }
     
     @Override
     public String toString(){
-        return this.nome;
+        DecimalFormat df = new DecimalFormat("0.00");
+        return this.nome + " ......................................... R$" + df.format(this.valorProd);
     }
 
 }
