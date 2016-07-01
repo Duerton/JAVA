@@ -1,5 +1,7 @@
 package Supermercado;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -7,19 +9,15 @@ import javax.swing.JOptionPane;
 
 public class BD {
 
-    Map<String, Pessoa> listaFuncionarios = new HashMap();
-    Map<Integer, Produto> estoque = new HashMap();
+    private Map<String, Pessoa> listaFuncionarios = new HashMap();
+    private Collection listaVendas = new ArrayList();
     
-    //Métodos para produtos
-    public void inserirProdutoUnidade(Integer codigo, float valor, String nome, String marca, String descricao) {
-        Produto produto = new ProdutoUnidade(codigo, valor, nome, marca, descricao);
-        this.estoque.put(codigo, produto);
+    //Map<Integer, Produto> estoque = new HashMap();
+    public void salvarVenda(Venda venda){
+        listaVendas.add(venda);
     }
-    
-    public Produto buscarProduto(Integer codigo){
-        return estoque.get(codigo);        
-    }
-    
+
+
     
     
     //métodos para Pessoas
