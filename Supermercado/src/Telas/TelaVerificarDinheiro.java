@@ -15,13 +15,20 @@ import javax.swing.JTextField;
 
 public class TelaVerificarDinheiro implements ActionListener{
     private Venda venda;
+    private JFrame janela;
+    private final JButton finalizarVenda;
+    private final JButton pagamento;
     
-    public TelaVerificarDinheiro(Venda venda){
+    public TelaVerificarDinheiro(Venda venda, JFrame janela, JButton finalizarVenda, JButton pagamento){
         this.venda = venda;
+        this.janela = janela;
+        this.finalizarVenda = finalizarVenda; 
+        this.pagamento = pagamento;
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {        
+        janela.dispose();
         JFrame frame = new JFrame();
         JPanel painel = new JPanel(new GridLayout(1,4));
         JLabel valorL = new JLabel("Valor recebido:");
@@ -35,7 +42,7 @@ public class TelaVerificarDinheiro implements ActionListener{
         painel.add(confirma);
         painel.add(cancela);
         
-        confirma.addActionListener(new ControleVerificarDinheiro(venda, valor));
+        confirma.addActionListener(new ControleVerificarDinheiro(venda, valor, finalizarVenda, pagamento, frame));
       
         cancela.addActionListener(new ActionListener(){
             @Override

@@ -31,14 +31,19 @@ public class Venda {
     
     public boolean finalizarVenda(int senha){
         Cartao cartao = new Cartao();
-        if (cartao.validarCartao(senha)){
+        if (cartao.validarCartao(senha)){            
             return true;
-        }
+        }        
         return false;
     }
     
     public float calcularTroco(float valor){
-        return valor - this.valorTotal;
+        float troco = valor - this.valorTotal;
+        if(troco >= 0){
+            return troco;
+        }
+        return -1;
     }
+  
 
 }

@@ -1,12 +1,6 @@
 package Supermercado;
 
 import Telas.TelaLogin;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import javax.swing.JButton;
 
 public class main {
 
@@ -15,6 +9,7 @@ public class main {
         Estoque estoqueLocal = new Estoque();
         TelaLogin telalogin = new TelaLogin();
         Venda venda = new Venda();
+        //Caixa caixa = new Caixa();
         
         estoqueLocal.inserirProdutoUnidade(001, 10.00f, "Feijão", "Combrasil");
         estoqueLocal.inserirProdutoUnidade(002, 15.00f, "Arroz", "Tio João");
