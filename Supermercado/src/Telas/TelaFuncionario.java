@@ -1,10 +1,12 @@
 package Telas;
 
 import Controle.ControleVisualizar;
-import Controle.ControleFinalizarVenda;
+import Controle.ControlePagamento;
 import Controle.ControleNovaVenda;
 import Controle.ControleRemover;
 import Controle.ControleAdicionar;
+import Controle.ControleFinalizarVenda;
+import Controle.ControleIniciarBalanca;
 import Supermercado.BD;
 import Supermercado.Estoque;
 import Supermercado.Produto;
@@ -28,10 +30,8 @@ public class TelaFuncionario {
 
     private final DefaultListModel<Produto> produtos = new DefaultListModel<>();
     private final JList<Produto> listaProdutos = new JList();
-    private JTextField codigoProduto;
     private JTextField nomeProduto;
     private JTextField valorProduto;
-    private JTextField descricaoProduto;
     private JTextField digitarCodigo;
     private JTextField valorTotal;
 
@@ -53,6 +53,8 @@ public class TelaFuncionario {
         JButton adicionar = new JButton("Adicionar");
         JButton remover = new JButton("Remover");
         JButton consultar = new JButton("Consultar");
+        JButton balanca = new JButton("Balança");
+        JButton pagamento = new JButton("Forma de Pagamento");
         JButton finalizarVenda = new JButton("Finalizar Venda");
         JButton desconectar = new JButton("Desconectar");
         JPanel painelBotoes = new JPanel(new GridLayout(10, 1));
@@ -60,15 +62,12 @@ public class TelaFuncionario {
         painelBotoes.add(adicionar);
         painelBotoes.add(remover);
         painelBotoes.add(consultar);
+        painelBotoes.add(balanca);
+        painelBotoes.add(pagamento);
         painelBotoes.add(finalizarVenda);
         painelBotoes.add(desconectar);
         painelGeral.add(painelBotoes, BorderLayout.EAST);
-
-        adicionar.setEnabled(false);
-        consultar.setEnabled(false);
-        finalizarVenda.setEnabled(false);
-        remover.setEnabled(false);
-
+        
         digitarCodigo = new JTextField();
         JLabel codigo = new JLabel("Codigo: ");
         valorTotal = new JTextField();
@@ -90,19 +89,31 @@ public class TelaFuncionario {
         painelDescricao.add(valor);
         painelDescricao.add(valorProduto);
         painelGeral.add(painelDescricao, BorderLayout.WEST);
-
-        novaVenda.addActionListener(new ControleNovaVenda(adicionar, consultar, remover, finalizarVenda, novaVenda));
+        
+        adicionar.setEnabled(false);
+        consultar.setEnabled(false);
+        finalizarVenda.setEnabled(false);
+        remover.setEnabled(false);
+        pagamento.setEnabled(false);
+        nomeProduto.setEditable(false);
+        valorProduto.setEditable(false);
+        valorTotal.setEditable(false);
+        digitarCodigo.setEditable(false);
+        
+        
+        balanca.addActionListener(new ControleIniciarBalanca());
+        novaVenda.addActionListener(new ControleNovaVenda(adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, nomeProduto, valorProduto, valorTotal, digitarCodigo));
         consultar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
         adicionar.addActionListener(new ControleAdicionar(estoque, venda, produtos, digitarCodigo, valorTotal));
         adicionar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
         remover.addActionListener(new ControleRemover(listaProdutos, produtos, venda, valorTotal));
-        finalizarVenda.addActionListener(new ControleFinalizarVenda(venda));
+        pagamento.addActionListener(new ControlePagamento(venda, adicionar, consultar, remover, pagamento, finalizarVenda, desconectar));
+        finalizarVenda.addActionListener(new ControleFinalizarVenda(adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, desconectar, venda, bd, produtos, nomeProduto, valorProduto, valorTotal, digitarCodigo));
         desconectar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-            }
-            
+                frame.dispose();
+            }            
         });
 
         frame.pack();

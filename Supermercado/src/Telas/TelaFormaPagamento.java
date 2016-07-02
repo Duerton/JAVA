@@ -10,11 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TelaPagamento {
+public class TelaFormaPagamento {
 
-    public void montarPagamento(Venda venda) {
+    public void montarPagamento(Venda venda, JButton finalizarVenda, JButton pagamento) {
         JFrame frame = new JFrame();
-
         JPanel painelEscolha = new JPanel();
         painelEscolha.setBorder(BorderFactory.createTitledBorder("Forma de Pagamento"));
         JButton cartao = new JButton("Cartao");
@@ -23,18 +22,15 @@ public class TelaPagamento {
         painelEscolha.add(cartao);
         painelEscolha.add(dinheiro);
         painelEscolha.add(cancela);
-        frame.add(painelEscolha);
+        frame.add(painelEscolha);        
 
-        cartao.addActionListener(new TelaVerificarCartao(venda));
-        
-        dinheiro.addActionListener(new TelaVerificarDinheiro(venda));
-        
-        cancela.addActionListener(new ActionListener(){
-            
+        cartao.addActionListener(new TelaVerificarCartao(venda, frame, finalizarVenda, pagamento));        
+        dinheiro.addActionListener(new TelaVerificarDinheiro(venda, frame, finalizarVenda, pagamento));        
+        cancela.addActionListener(new ActionListener(){            
+            @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-            }
-            
+            }            
         });
 
         frame.pack();
