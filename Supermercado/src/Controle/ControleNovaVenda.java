@@ -1,6 +1,7 @@
 
 package Controle;
 
+import Supermercado.Caixa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -18,8 +19,9 @@ public class ControleNovaVenda implements ActionListener{
     private final JTextField valorProduto;
     private final JTextField valorTotal;
     private final JTextField digitarCodigo;
+    private final Caixa caixa;
     
-    public ControleNovaVenda(JButton adicionar, JButton visualizar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton novaVenda, JTextField nomeProduto, JTextField valorProduto, JTextField valorTotal, JTextField digitarCodigo){
+    public ControleNovaVenda(Caixa caixa, JButton adicionar, JButton visualizar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton novaVenda, JTextField nomeProduto, JTextField valorProduto, JTextField valorTotal, JTextField digitarCodigo){
         this.adicionar = adicionar;
         this.visualizar = visualizar;
         this.remover = remover;
@@ -30,10 +32,12 @@ public class ControleNovaVenda implements ActionListener{
         this.valorProduto = valorProduto;
         this.valorTotal = valorTotal;
         this.digitarCodigo = digitarCodigo;
+        this.caixa = caixa;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        caixa.novaVenda();
         JOptionPane.showMessageDialog(null, "Nova venda iniciada");
         adicionar.setEnabled(true);
         visualizar.setEnabled(true);
@@ -44,7 +48,7 @@ public class ControleNovaVenda implements ActionListener{
         nomeProduto.setEditable(true);
         valorProduto.setEditable(true);
         valorTotal.setEditable(true);
-        digitarCodigo.setEditable(true);
+        digitarCodigo.setEditable(true);        
     }
     
 }

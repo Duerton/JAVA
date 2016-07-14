@@ -8,9 +8,9 @@ import Controle.ControleAdicionar;
 import Controle.ControleFinalizarVenda;
 import Controle.ControleIniciarBalanca;
 import Supermercado.BD;
+import Supermercado.Caixa;
 import Supermercado.Estoque;
 import Supermercado.Produto;
-import Supermercado.Venda;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -35,7 +35,7 @@ public class TelaFuncionario {
     private JTextField digitarCodigo;
     private JTextField valorTotal;
 
-    public void montarTelaFuncionario(BD bd, Estoque estoque, Venda venda) {
+    public void montarTelaFuncionario(BD bd, Estoque estoque, Caixa caixa) {
 
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,14 +101,14 @@ public class TelaFuncionario {
         digitarCodigo.setEditable(false);
         
         
-        balanca.addActionListener(new ControleIniciarBalanca());
-        novaVenda.addActionListener(new ControleNovaVenda(adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, nomeProduto, valorProduto, valorTotal, digitarCodigo));
+        balanca.addActionListener(new ControleIniciarBalanca(estoque));
+        novaVenda.addActionListener(new ControleNovaVenda(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, nomeProduto, valorProduto, valorTotal, digitarCodigo));
         consultar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
-        adicionar.addActionListener(new ControleAdicionar(estoque, venda, produtos, digitarCodigo, valorTotal));
+        adicionar.addActionListener(new ControleAdicionar(estoque, caixa, produtos, digitarCodigo, valorTotal));
         adicionar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
-        remover.addActionListener(new ControleRemover(listaProdutos, produtos, venda, valorTotal));
-        pagamento.addActionListener(new ControlePagamento(venda, adicionar, consultar, remover, pagamento, finalizarVenda, desconectar));
-        finalizarVenda.addActionListener(new ControleFinalizarVenda(adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, desconectar, venda, bd, produtos, nomeProduto, valorProduto, valorTotal, digitarCodigo));
+        remover.addActionListener(new ControleRemover(listaProdutos, produtos, caixa, valorTotal));
+        pagamento.addActionListener(new ControlePagamento(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, desconectar));
+        finalizarVenda.addActionListener(new ControleFinalizarVenda(caixa,adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, desconectar, produtos, nomeProduto, valorProduto, valorTotal, digitarCodigo));
         desconectar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {

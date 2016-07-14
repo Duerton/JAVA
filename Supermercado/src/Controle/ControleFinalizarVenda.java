@@ -1,6 +1,7 @@
 package Controle;
 
 import Supermercado.BD;
+import Supermercado.Caixa;
 import Supermercado.Venda;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,23 +19,21 @@ public class ControleFinalizarVenda implements ActionListener {
     private final JButton novaVenda;
     private final JButton pagamento;
     private final JButton desconectar;
-    private final BD bd;
-    private final Venda venda;
+    private final Caixa caixa;
     private final DefaultListModel produtos;
     private final JTextField nomeProduto;
     private final JTextField valorProduto;
     private final JTextField valorTotal;
     private final JTextField digitarCodigo;
 
-    public ControleFinalizarVenda(JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton novaVenda, JButton desconectar, Venda venda, BD bd, DefaultListModel produtos, JTextField nomeProduto, JTextField valorProduto, JTextField valorTotal, JTextField digitarCodigo) {
+    public ControleFinalizarVenda(Caixa caixa, JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton novaVenda, JButton desconectar, DefaultListModel produtos, JTextField nomeProduto, JTextField valorProduto, JTextField valorTotal, JTextField digitarCodigo) {
         this.adicionar = adicionar;
         this.consultar = consultar;
         this.remover = remover;
         this.finalizarVenda = finalizarVenda;
         this.novaVenda = novaVenda;
         this.pagamento = pagamento;
-        this.bd = bd;
-        this.venda = venda;
+        this.caixa = caixa;
         this.produtos = produtos;
         this.nomeProduto = nomeProduto;
         this.valorProduto = valorProduto;
@@ -45,7 +44,7 @@ public class ControleFinalizarVenda implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        bd.salvarVenda(venda);
+        caixa.finalizarVenda();
         JOptionPane.showMessageDialog(null, "Venda Finalizada");
         produtos.clear();
         nomeProduto.setText("");
