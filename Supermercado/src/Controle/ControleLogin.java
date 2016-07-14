@@ -1,14 +1,13 @@
 package Controle;
 
 import Supermercado.BD;
+import Supermercado.Caixa;
 import Supermercado.Estoque;
-import Supermercado.Venda;
 import Telas.TelaFuncionario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -18,14 +17,14 @@ public class ControleLogin implements ActionListener, KeyListener {
     private final JPasswordField senha;
     private final BD bd;
     private final Estoque estoque;
-    private final Venda venda;
+    private final Caixa caixa;
 
-    public ControleLogin(JTextField login, JPasswordField senha, BD bd, Estoque estoque, Venda venda) {
+    public ControleLogin(JTextField login, JPasswordField senha, BD bd, Estoque estoque, Caixa caixa) {
         this.login = login;
         this.senha = senha;
         this.bd = bd;
         this.estoque = estoque;
-        this.venda = venda;
+        this.caixa = caixa;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class ControleLogin implements ActionListener, KeyListener {
             login.setText("");
             senha.setText("");
             TelaFuncionario telafuncionario = new TelaFuncionario();
-            telafuncionario.montarTelaFuncionario(bd, estoque, venda);
+            telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
         }
     }
 
@@ -58,7 +57,7 @@ public class ControleLogin implements ActionListener, KeyListener {
             login.setText("");
             senha.setText("");
             TelaFuncionario telafuncionario = new TelaFuncionario();
-            telafuncionario.montarTelaFuncionario(bd, estoque, venda);
+            telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
         }
     }
 }

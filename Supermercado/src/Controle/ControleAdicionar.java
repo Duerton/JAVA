@@ -1,6 +1,7 @@
 
 package Controle;
 
+import Supermercado.Caixa;
 import Supermercado.Estoque;
 import Supermercado.Produto;
 import Supermercado.Venda;
@@ -16,26 +17,26 @@ import javax.swing.event.ListSelectionListener;
 public class ControleAdicionar implements ActionListener{
     
     private final DefaultListModel<Produto> produtos;
-    private Venda venda;
+    private Caixa caixa;
     private final Estoque estoque;
     private final JTextField digitarCodigo;
     private final JTextField valorTotal;
     
-    public ControleAdicionar(Estoque estoque, Venda venda, DefaultListModel<Produto> produtos, JTextField digitarCodigo, JTextField valorTotal){
+    public ControleAdicionar(Estoque estoque, Caixa caixa, DefaultListModel<Produto> produtos, JTextField digitarCodigo, JTextField valorTotal){
         this.produtos = produtos;
         this.estoque = estoque;
         this.digitarCodigo = digitarCodigo;
         this.valorTotal = valorTotal;
-        this.venda = venda;
+        this.caixa = caixa;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Produto produto = estoque.buscarProduto(Integer.parseInt(digitarCodigo.getText()));
         produtos.addElement(produto);
-        venda.adicionarProdutoVenda(produto);
+        caixa.getVenda().adicionarProdutoVenda(produto);
         DecimalFormat df = new DecimalFormat("0.00");
-        valorTotal.setText(String.valueOf(df.format(venda.getValorTotal())));
+        valorTotal.setText(String.valueOf(df.format(caixa.getVenda().getValorTotal())));
     }
 
    

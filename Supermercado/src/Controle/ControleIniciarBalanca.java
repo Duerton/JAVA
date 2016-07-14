@@ -1,17 +1,22 @@
 package Controle;
 
-import Supermercado.Venda;
+
+import Supermercado.Estoque;
 import Telas.TelaBalanca;
-import Telas.TelaFormaPagamento;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 
-public class ControleIniciarBalanca implements ActionListener{
+public class ControleIniciarBalanca implements ActionListener {
+
+    private final Estoque estoque;
+
+    public ControleIniciarBalanca(Estoque estoque) {
+        this.estoque = estoque;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         TelaBalanca balanca = new TelaBalanca();
-        balanca.montarBalanca();
+        balanca.montarBalanca(estoque);
     }
 }

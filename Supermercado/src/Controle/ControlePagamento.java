@@ -1,5 +1,6 @@
 package Controle;
 
+import Supermercado.Caixa;
 import Telas.TelaFormaPagamento;
 import Supermercado.Venda;
 import java.awt.event.ActionEvent;
@@ -14,10 +15,10 @@ public class ControlePagamento implements ActionListener {
     private final JButton finalizarVenda;
     private final JButton pagamento;
     private final JButton desconectar;
-    private final Venda venda;
+    private final Caixa caixa;
 
-    public ControlePagamento(Venda venda, JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton desconectar) {
-        this.venda = venda;
+    public ControlePagamento(Caixa caixa, JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton desconectar) {
+        this.caixa = caixa;
         this.adicionar = adicionar;
         this.consultar = consultar;
         this.remover = remover;
@@ -34,7 +35,7 @@ public class ControlePagamento implements ActionListener {
         remover.setEnabled(false);
         desconectar.setEnabled(false);
         TelaFormaPagamento telaFormaPagamento = new TelaFormaPagamento();
-        telaFormaPagamento.montarPagamento(venda, finalizarVenda, pagamento);
+        telaFormaPagamento.montarPagamento(caixa.getVenda(), finalizarVenda, pagamento);
     }
 
 }
