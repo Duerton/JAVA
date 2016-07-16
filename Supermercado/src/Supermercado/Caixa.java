@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Caixa{
-    private int idFunc;
+    private final BD bd;
     private static int totalCaixa;
     private final int idCaixa;
     private Venda venda;
-    private Collection vendasCaixa = new ArrayList();
     private String loginFuncionario;
     
-    public Caixa(){        
+    public Caixa(BD bd){        
         Caixa.totalCaixa++;
-        idCaixa = totalCaixa;        
+        idCaixa = totalCaixa;
+        this.bd = bd;
     }
     
     public void setLogin(String login){
@@ -23,7 +23,7 @@ public class Caixa{
     }
     
     public void novaVenda(){
-        this.venda = new Venda();        
+        this.venda = new Venda(this.idCaixa, this.loginFuncionario);        
     }
     
     public Venda getVenda(){
@@ -33,7 +33,7 @@ public class Caixa{
     public void finalizarVenda(){
         NotaFiscal nota = new NotaFiscal(this.idCaixa, this.loginFuncionario, this.venda);
         nota.gerarNota();
-        vendasCaixa.add(nota);        
+        bd.salvarVenda(venda);
     }
 
     

@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -34,8 +35,6 @@ public class ControleLogin implements ActionListener, KeyListener {
         String aux = login.getText();
         String auxS = senha.getText();
         if (bd.loginFuncionario(aux, auxS)) {
-            login.setText("");
-            senha.setText("");
             Funcionario funcionario = bd.getFuncionario(aux);
             if (funcionario.getCargo() == 0) {
                 TelaGerente telagerente = new TelaGerente();
@@ -44,6 +43,8 @@ public class ControleLogin implements ActionListener, KeyListener {
                 caixa.setLogin(login.getText());
                 TelaFuncionario telafuncionario = new TelaFuncionario();
                 telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+                login.setText("");
+                senha.setText("");
             }
         }
     }
@@ -63,15 +64,16 @@ public class ControleLogin implements ActionListener, KeyListener {
         String aux = login.getText();
         String auxS = senha.getText();
         if (bd.loginFuncionario(aux, auxS)) {
-            login.setText("");
-            senha.setText("");
             Funcionario funcionario = bd.getFuncionario(aux);
             if (funcionario.getCargo() == 0) {
                 TelaGerente telagerente = new TelaGerente();
                 telagerente.montarTelaGerente(bd, estoque);
             } else {
+                caixa.setLogin(login.getText());
                 TelaFuncionario telafuncionario = new TelaFuncionario();
                 telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+                login.setText("");
+                senha.setText("");
             }
         }
     }

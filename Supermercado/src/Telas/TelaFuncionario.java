@@ -11,7 +11,6 @@ import Supermercado.BD;
 import Supermercado.Caixa;
 import Supermercado.Estoque;
 import Supermercado.Item;
-import Supermercado.Produto;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -85,8 +84,8 @@ public class TelaFuncionario {
         painelCodigo.add(valorTotal);
         painelGeral.add(painelCodigo, BorderLayout.SOUTH);
 
-        nomeProduto = new JTextField();
-        valorProduto = new JTextField();
+        nomeProduto = new JTextField(10);
+        valorProduto = new JTextField(10);
         JLabel nome = new JLabel("Nome: ");
         JLabel valor = new JLabel("Valor: R$");
         JPanel painelDescricao = new JPanel(new GridLayout(10, 1));
@@ -114,7 +113,7 @@ public class TelaFuncionario {
         consultar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
         adicionar.addActionListener(new ControleAdicionar(estoque, caixa, itens, digitarCodigo, valorTotal, quantidade));
         adicionar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
-        remover.addActionListener(new ControleRemover(listaItens, itens, caixa, valorTotal));
+        remover.addActionListener(new ControleRemover(estoque, listaItens, itens, caixa, valorTotal));
         pagamento.addActionListener(new ControlePagamento(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, desconectar, balanca));
         finalizarVenda.addActionListener(new ControleFinalizarVenda(caixa,adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, desconectar, balanca, itens, nomeProduto, valorProduto, valorTotal, digitarCodigo));
         desconectar.addActionListener(new ActionListener(){

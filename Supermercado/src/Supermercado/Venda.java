@@ -9,14 +9,28 @@ public class Venda {
     private static int totalIDVenda;
     private Collection produtosCompra = new ArrayList();
     private float valorTotal = 0;
+    private float troco;
+    private String formaPagamento;
+    private int idCaixa;
+    private String loginFuncionario;
 
-    public Venda() {
+    public Venda(int idCaixa, String loginFuncionario) {
         Venda.totalIDVenda++;
         this.idVenda = totalIDVenda;
+        this.idCaixa = idCaixa;
+        this.loginFuncionario = loginFuncionario;
     }
     
     public Collection getProdutosCompra(){
-        return produtosCompra;
+        return this.produtosCompra;
+    }
+    
+    public String getLoginFuncionario(){
+        return this.loginFuncionario;
+    }
+    
+    public int getIdCaixa(){
+        return this.idCaixa;
     }
 
     public void adicionarProdutoVenda(Item item) {
@@ -33,18 +47,33 @@ public class Venda {
         return this.valorTotal;
     }
     
+    public float getTroco() {
+        return this.troco;
+    }
+    
+    public float getIdVenda() {
+        return this.idVenda;
+    }
+    
+    public String getFormaPagamento() {
+        return this.formaPagamento;
+    }
+    
     public boolean finalizarVenda(int senha){
         Cartao cartao = new Cartao();
-        if (cartao.validarCartao(senha)){            
+        if (cartao.validarCartao(senha)){ 
+            this.troco = 0;
+            this.formaPagamento = "Cartao";
             return true;
         }        
         return false;
     }
     
     public float calcularTroco(float valor){
-        float troco = valor - this.valorTotal;
+        troco = valor - this.valorTotal;
         if(troco >= 0){
-            return troco;
+            this.formaPagamento = "Dinheiro";
+            return troco;            
         }
         return -1;
     }

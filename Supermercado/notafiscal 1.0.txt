@@ -1,0 +1,13 @@
+|----------------- CDL SUPERMERCADOS ---------------|
+|---------------------------------------------------|
+|-------------------- NOTA FISCAL ------------------|
+| CAIXA: 1              DATA: 16 de Julho de 2016   |
+ UNIDADE             PRODUTO                   R$
+   1.0   Cebola a granel kg                    2.85
+   1.0   Tomate a granel kg                    3.48
+                                                   
+                                   TOTAL: R$ 6.33
+                                   TROCO: R$ 3.67
+ FORMA DE PAGAMENTO: Dinheiro
+ ATENDENTE: Duerton
+|---------------------------------------------------|

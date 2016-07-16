@@ -1,0 +1,16 @@
+Gerente
+gerente
+root
+0
+Duerton
+Duerton
+root
+1
+Catarina
+Catarina
+spike
+1
+Leonardo
+Leonardo
+guigui
+1

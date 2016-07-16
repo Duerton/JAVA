@@ -29,6 +29,8 @@ public abstract class Produto {
     public int getCodigo(){
         return this.codProd;
     }
-
-
+    
+    public String toString(){
+        return this.nome;
+    }
 }
