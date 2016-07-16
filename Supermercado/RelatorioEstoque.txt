@@ -1,0 +1,83 @@
+|----------------- CDL SUPERMERCADOS ---------------|
+|---------------------------------------------------|
+|---------------- RELATORIO DE ESTOQUE -------------|
+| DATA: 16 de Julho de 2016                         |
+|        ESTOQUE DISPONIVEL - INÍCIO DO DIA         |
+ PRODUTO                               QUANTIDADE
+       Cenoura a granel kg       10
+       10       Cebola a granel kg
+       Cebola a granel kg       10
+       10       Tomate a granel kg
+       Tomate a granel kg       10
+       10       Massa para tapioca Da Terrinha 500g
+       Massa para tapioca Da Terrinha 500g       10
+       10       Ovo branco grande Qualita com 12 unidades
+       Ovo branco grande Qualita com 12 unidades       10
+       10       Alho a granel kg
+       Alho a granel kg       10
+       10       Laranja-pera a granel kg
+       Laranja-pera a granel kg       10
+       10       Mamao-formosa a granel kg
+       Mamao-formosa a granel kg       10
+       10       Uva-vermelha sem semente Qualita 500g
+       Uva-vermelha sem semente Qualita 500g       10
+       10       Manga palmer nacional a granel kg
+       Manga palmer nacional a granel kg       10
+       10       Maca red importa a granel kg
+       Maca red importa a granel kg       10
+       10       Pera williams importa a granel kg
+       Pera williams importa a granel kg       10
+       10       Guaran� Antartica 2L
+       Guaran� Antartica 2L       10
+       10       Pepsi 2L
+       Pepsi 2L       10
+       10       Arroz Maximo 5kg
+       Arroz Maximo 5kg       10
+       10       Cafe Coracoes 500g
+       Cafe Coracoes 500g       10
+       10       Cafe Evolutto Extra Forte 500g
+       Cafe Evolutto Extra Forte 500g       10
+       10       Alimento infantil Nestle 120g
+       Alimento infantil Nestle 120g       10
+       10       File de Peito de Frango Seara 1kg
+       File de Peito de Frango Seara 1kg       10
+       10       Maionese Arisco Trad. 500g
+       Maionese Arisco Trad. 500g       10
+       10       Ketchup Hellman's Trad. 380g
+       Ketchup Hellman's Trad. 380g       10
+       10       Leite Condensado 
+       Leite Condensado        10
+       10       Pao de Forma Trad. Golden Vital 500g
+       Pao de Forma Trad. Golden Vital 500g       10
+       10       Pao de Forma Integral 9 Graos ou Mil
+       Pao de Forma Integral 9 Graos ou Mil       10
+       10       null
+|                                                   |
+|          ESTOQUE DISPONIVEL - FIM DO DIA          |
+ PRODUTO                               QUANTIDADE
+ Laranja-pera a granel kg       10.0
+ Mamao-formosa a granel kg       10.0
+ Alho a granel kg       10.0
+ Pepsi 2L       10.0
+ Maionese Arisco Trad. 500g       10.0
+ Cafe Coracoes 500g       10.0
+ Leite Condensado        10.0
+ Cenoura a granel kg       10.0
+ Manga palmer nacional a granel kg       10.0
+ File de Peito de Frango Seara 1kg       10.0
+ Cafe Evolutto Extra Forte 500g       10.0
+ Ovo branco grande Qualita com 12 unidades       10.0
+ Pera williams importa a granel kg       10.0
+ Alimento infantil Nestle 120g       10.0
+ Pao de Forma Integral 9 Graos ou Mil       10.0
+ Pao de Forma Trad. Golden Vital 500g       10.0
+ Massa para tapioca Da Terrinha 500g       10.0
+ Guaran� Antartica 2L       10.0
+ Arroz Maximo 5kg       10.0
+ Maca red importa a granel kg       10.0
+ Cebola a granel kg       9.0
+ Tomate a granel kg       9.0
+ Uva-vermelha sem semente Qualita 500g       10.0
+ Ketchup Hellman's Trad. 380g       10.0
+|                                                   |
+|---------------------------------------------------|

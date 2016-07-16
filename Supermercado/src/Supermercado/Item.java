@@ -18,6 +18,10 @@ public class Item {
         return this.valorTotal;
     }
     
+    public Produto getProduto(){
+        return this.produto;
+    }
+    
     public float getQuantidade() {
         return this.quantidade;
     }
