@@ -15,9 +15,10 @@ public class ControlePagamento implements ActionListener {
     private final JButton finalizarVenda;
     private final JButton pagamento;
     private final JButton desconectar;
+    private final JButton balanca;
     private final Caixa caixa;
 
-    public ControlePagamento(Caixa caixa, JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton desconectar) {
+    public ControlePagamento(Caixa caixa, JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton desconectar, JButton balanca) {
         this.caixa = caixa;
         this.adicionar = adicionar;
         this.consultar = consultar;
@@ -25,6 +26,7 @@ public class ControlePagamento implements ActionListener {
         this.finalizarVenda = finalizarVenda;
         this.pagamento = pagamento;
         this.desconectar = desconectar;
+        this.balanca = balanca;
     }
 
     @Override
@@ -34,6 +36,7 @@ public class ControlePagamento implements ActionListener {
         finalizarVenda.setEnabled(false);
         remover.setEnabled(false);
         desconectar.setEnabled(false);
+        balanca.setEnabled(false);
         TelaFormaPagamento telaFormaPagamento = new TelaFormaPagamento();
         telaFormaPagamento.montarPagamento(caixa.getVenda(), finalizarVenda, pagamento);
     }

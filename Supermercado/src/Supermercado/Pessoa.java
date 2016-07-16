@@ -5,11 +5,9 @@ public abstract class Pessoa {
     protected String nome;
     protected String login;
     protected String senha;
-    protected int cargo;
 
-    Pessoa(String nome, String login, String senha, int cargo) {
+    Pessoa(String nome, String login, String senha) {
         this.nome = nome;
-        this.cargo = cargo;
         this.senha = senha;
         this.login = login;
     }

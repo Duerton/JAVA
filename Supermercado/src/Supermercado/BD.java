@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class BD {
 
-    private Map<String, Pessoa> listaFuncionarios = new HashMap();
+    private Map<String, Funcionario> listaFuncionarios = new HashMap();
     private Collection listaVendas = new ArrayList();
     
     //Map<Integer, Produto> estoque = new HashMap();
@@ -21,19 +21,23 @@ public class BD {
     
     
     //métodos para Pessoas
-    public void cadastrarPessoa(String nome, String login, String senha, int cargo) {
-        Pessoa pessoa = new Funcionario(nome, login, senha, cargo);
-        this.listaFuncionarios.put(login, pessoa);
+    public void cadastrarFuncionario(String nome, String login, String senha, int cargo) {
+        Funcionario funcionario = new Funcionario(nome, login, senha, cargo);
+        this.listaFuncionarios.put(login, funcionario);
+    }
+    
+    public Funcionario getFuncionario(String login){
+        return listaFuncionarios.get(login);
     }
 
-    public boolean confirmarLoginPessoa(Pessoa pessoa, String login, String senha) {
-        if (login.equals(pessoa.login) && senha.equals(pessoa.senha)) {
+    public boolean confirmarLoginFuncionario(String login) {
+        if (listaFuncionarios.containsKey(login)) {
             return true;
         }
         return false;
     }
 
-    public boolean loginPessoa(String login, String senha) {
+    public boolean loginFuncionario(String login, String senha) {
         Pessoa pessoa;
         if (listaFuncionarios.containsKey(login)) {
             pessoa = listaFuncionarios.get(login);
@@ -49,7 +53,7 @@ public class BD {
     }
 
     public void cadastrarGerentePadrao() {
-        Pessoa gerente = new Funcionario("Duerton", "duerton", "root", 1);
+        Funcionario gerente = new Funcionario("Duerton", "duerton", "root", 1);
         gerente.setSenha("root");
         listaFuncionarios.put("Duerton", gerente);
     }

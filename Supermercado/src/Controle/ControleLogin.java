@@ -3,7 +3,9 @@ package Controle;
 import Supermercado.BD;
 import Supermercado.Caixa;
 import Supermercado.Estoque;
+import Supermercado.Funcionario;
 import Telas.TelaFuncionario;
+import Telas.TelaGerente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -31,11 +33,18 @@ public class ControleLogin implements ActionListener, KeyListener {
     public void keyTyped(KeyEvent e) {
         String aux = login.getText();
         String auxS = senha.getText();
-        if (bd.loginPessoa(aux, auxS)) {
+        if (bd.loginFuncionario(aux, auxS)) {
             login.setText("");
             senha.setText("");
-            TelaFuncionario telafuncionario = new TelaFuncionario();
-            telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+            Funcionario funcionario = bd.getFuncionario(aux);
+            if (funcionario.getCargo() == 0) {
+                TelaGerente telagerente = new TelaGerente();
+                telagerente.montarTelaGerente(bd, estoque);
+            } else {
+                caixa.setLogin(login.getText());
+                TelaFuncionario telafuncionario = new TelaFuncionario();
+                telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+            }
         }
     }
 
@@ -53,11 +62,17 @@ public class ControleLogin implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         String aux = login.getText();
         String auxS = senha.getText();
-        if (bd.loginPessoa(aux, auxS)) {
+        if (bd.loginFuncionario(aux, auxS)) {
             login.setText("");
             senha.setText("");
-            TelaFuncionario telafuncionario = new TelaFuncionario();
-            telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+            Funcionario funcionario = bd.getFuncionario(aux);
+            if (funcionario.getCargo() == 0) {
+                TelaGerente telagerente = new TelaGerente();
+                telagerente.montarTelaGerente(bd, estoque);
+            } else {
+                TelaFuncionario telafuncionario = new TelaFuncionario();
+                telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+            }
         }
     }
 }

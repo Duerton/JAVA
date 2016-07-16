@@ -4,12 +4,12 @@ import java.text.DecimalFormat;
 
 public abstract class Produto {
 
-    protected static int codProd;
+    protected static int codProd = 0;
     protected float valorProd;
     private String nome;
 
-    Produto(int codigo, float valor, String nome) {
-        Produto.codProd = codigo;
+    Produto(float valor, String nome) {
+        Produto.codProd++;
         this.valorProd = valor;
         this.nome = nome;
     }
@@ -29,11 +29,6 @@ public abstract class Produto {
     public int getCodigo(){
         return this.codProd;
     }
-    
-    @Override
-    public String toString(){
-        DecimalFormat df = new DecimalFormat("0.00");
-        return this.nome + " ......................................... R$" + df.format(this.valorProd);
-    }
+
 
 }

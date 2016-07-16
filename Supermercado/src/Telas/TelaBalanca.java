@@ -5,7 +5,7 @@
  */
 package Telas;
 
-import Controle.CalcularPesoBalanca;
+import Controle.ControleCalcularPeso;
 import Supermercado.Estoque;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 public class TelaBalanca {
 
-    public void montarBalanca(Estoque estoque) {
+    public void montarBalanca(JTextField quantidade) {
         JFrame frame = new JFrame();
         JPanel painel = new JPanel();
         painel.setBorder(BorderFactory.createTitledBorder("Balança"));
@@ -26,18 +26,14 @@ public class TelaBalanca {
         JButton cancelar = new JButton("Cancelar");
 
         JLabel pesoL = new JLabel("Digite o peso");
-        JLabel codigoL = new JLabel("Digite o código");
-        JTextField peso = new JTextField();
-        JTextField codigo = new JTextField();
+        JTextField peso = new JTextField(10);
         painel.add(pesoL);
         painel.add(peso);
-        painel.add(codigoL);
-        painel.add(codigo);
         painel.add(confirmar);
         painel.add(cancelar);
         frame.add(painel);
         
-        confirmar.addActionListener(new CalcularPesoBalanca(estoque, peso, codigo));
+        confirmar.addActionListener(new ControleCalcularPeso(quantidade, peso, frame));
         cancelar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
