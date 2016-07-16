@@ -7,9 +7,9 @@ public class Estoque {
 
     Map<Integer, Produto> estoque = new HashMap();
 
-    public void inserirProdutoUnidade(Integer codigo, float valor, String nome, String marca) {
-        Produto produto = new ProdutoUnidade(codigo, valor, nome, marca);
-        this.estoque.put(codigo, produto);
+    public void inserirProdutoUnidade(float valor, String nome) {
+        Produto produto = new ProdutoUnidade(valor, nome);
+        this.estoque.put(produto.getCodigo(), produto);
     }
 
     public Produto buscarProduto(Integer codProd) {

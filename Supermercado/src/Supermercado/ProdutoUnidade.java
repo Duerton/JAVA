@@ -4,8 +4,8 @@ public class ProdutoUnidade extends Produto {
 
     private int quantProdUnid;
 
-    public ProdutoUnidade(int codigo, float valor, String nome, String marca) {
-        super(codigo, valor, nome);
+    public ProdutoUnidade(float valor, String nome) {
+        super(valor, nome);
     }
 
     public int contQuantProd() {

@@ -1,8 +1,10 @@
 package Supermercado;
 
+import javax.swing.JTextField;
+
 public class Balanca {
 
-    public float calcularPeso(Produto produto, float peso) {
-        return produto.valorProd * peso;
+    public String calcularPeso(JTextField peso) {
+        return peso.getText();
     }
 }

@@ -3,17 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Telas/TelaFuncionario.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/NotaFiscal.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/BD.java</file>
             <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/Caixa.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/Balanca.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/Item.java</file>
             <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/main.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/CalcularPesoBalanca.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/Produto.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleNovaVenda.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleIniciarBalanca.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/Estoque.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Telas/TelaVerificarDinheiro.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Telas/TelaBalanca.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleLogin.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/Venda.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleFinalizarVenda.java</file>
         </group>
     </open-files>
 </project-private>

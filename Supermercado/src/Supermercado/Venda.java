@@ -14,15 +14,19 @@ public class Venda {
         Venda.totalIDVenda++;
         this.idVenda = totalIDVenda;
     }
-
-    public void adicionarProdutoVenda(Produto produto) {
-        produtosCompra.add(produto);
-        valorTotal += produto.valorProd;
+    
+    public Collection getProdutosCompra(){
+        return produtosCompra;
     }
 
-    public void removerProdutoVenda(Produto produto) {
-        produtosCompra.remove(produto);
-        valorTotal -= produto.valorProd;
+    public void adicionarProdutoVenda(Item item) {
+        produtosCompra.add(item);
+        valorTotal += item.getValorTotal();
+    }
+
+    public void removerProdutoVenda(Item item) {
+        produtosCompra.remove(item);
+        valorTotal -= item.getValorTotal();
     }
 
     public float getValorTotal() {

@@ -10,10 +10,10 @@ public class main {
         Caixa caixa = new Caixa();
         TelaLogin telalogin = new TelaLogin();
         
-        estoqueLocal.inserirProdutoUnidade(001, 10.00f, "Feijão", "Combrasil");
-        estoqueLocal.inserirProdutoUnidade(002, 15.00f, "Arroz", "Tio João");
-        estoqueLocal.inserirProdutoUnidade(003, 4.00f, "Açucar", "União");
-        estoqueLocal.inserirProdutoUnidade(004, 3.50f, "Biscoito", "Piraque");
+        estoqueLocal.inserirProdutoUnidade(10.00f, "Feijão");
+        estoqueLocal.inserirProdutoUnidade(15.00f, "Arroz");
+        estoqueLocal.inserirProdutoUnidade(4.00f, "Açucar");
+        estoqueLocal.inserirProdutoUnidade(3.50f, "Biscoito");
         
         bd.cadastrarGerentePadrao();
    

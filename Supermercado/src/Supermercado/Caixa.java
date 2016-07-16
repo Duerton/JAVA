@@ -11,15 +11,15 @@ public class Caixa{
     private final int idCaixa;
     private Venda venda;
     private Collection vendasCaixa = new ArrayList();
+    private String loginFuncionario;
     
     public Caixa(){        
         Caixa.totalCaixa++;
         idCaixa = totalCaixa;        
     }
     
-    public float balanca(ProdutoPeso produto, float peso){
-        Balanca balanca = new Balanca();
-        return balanca.calcularPeso(produto, peso);
+    public void setLogin(String login){
+        this.loginFuncionario = login;
     }
     
     public void novaVenda(){
@@ -31,7 +31,9 @@ public class Caixa{
     }
     
     public void finalizarVenda(){
-        vendasCaixa.add(this.venda);
+        NotaFiscal nota = new NotaFiscal(this.idCaixa, this.loginFuncionario, this.venda);
+        nota.gerarNota();
+        vendasCaixa.add(nota);        
     }
 
     
