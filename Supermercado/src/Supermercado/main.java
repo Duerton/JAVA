@@ -7,15 +7,16 @@ public class main {
     public static void main(String[] args) {
         Estoque estoqueLocal = new Estoque();
         BD bd = new BD(estoqueLocal);
-        Caixa caixa = new Caixa(bd);
-        TelaLogin telalogin = new TelaLogin();
         Arquivo arquivo = new Arquivo();
-
-        arquivo.getProdutos(estoqueLocal);
-
-        arquivo.getFuncionarios(bd);
-
-        telalogin.montarTelaLogin(bd, estoqueLocal, caixa);
+        Threads[] threads = new Threads[3];
+        
+        for(int i = 0; i < 3; i++){
+            threads[i] = new Threads(bd,estoqueLocal,arquivo);
+            threads[i].run();
+        }
+        
+        
+        
 
     }
 

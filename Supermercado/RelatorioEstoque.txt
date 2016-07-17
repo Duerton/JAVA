@@ -1,7 +1,7 @@
 |----------------- CDL SUPERMERCADOS ---------------|
 |---------------------------------------------------|
 |---------------- RELATORIO DE ESTOQUE -------------|
-| DATA: 16 de Julho de 2016                         |
+| DATA: 17 de Julho de 2016                         |
 |        ESTOQUE DISPONIVEL - INÍCIO DO DIA         |
  PRODUTO                               QUANTIDADE
        Cenoura a granel kg       10
@@ -57,7 +57,7 @@
  PRODUTO                               QUANTIDADE
  Laranja-pera a granel kg       10.0
  Mamao-formosa a granel kg       10.0
- Alho a granel kg       10.0
+ Alho a granel kg       7.0
  Pepsi 2L       10.0
  Maionese Arisco Trad. 500g       10.0
  Cafe Coracoes 500g       10.0
@@ -69,14 +69,14 @@
  Ovo branco grande Qualita com 12 unidades       10.0
  Pera williams importa a granel kg       10.0
  Alimento infantil Nestle 120g       10.0
- Pao de Forma Integral 9 Graos ou Mil       10.0
+ Pao de Forma Integral 9 Graos ou Mil       0.0
  Pao de Forma Trad. Golden Vital 500g       10.0
  Massa para tapioca Da Terrinha 500g       10.0
  Guaran� Antartica 2L       10.0
  Arroz Maximo 5kg       10.0
  Maca red importa a granel kg       10.0
- Cebola a granel kg       9.0
- Tomate a granel kg       9.0
+ Cebola a granel kg       10.0
+ Tomate a granel kg       10.0
  Uva-vermelha sem semente Qualita 500g       10.0
  Ketchup Hellman's Trad. 380g       10.0
 |                                                   |
