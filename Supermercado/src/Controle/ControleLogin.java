@@ -39,6 +39,8 @@ public class ControleLogin implements ActionListener, KeyListener {
             if (funcionario.getCargo() == 0) {
                 TelaGerente telagerente = new TelaGerente();
                 telagerente.montarTelaGerente(bd, estoque);
+                login.setText("");
+                senha.setText("");
             } else {
                 caixa.setLogin(login.getText());
                 TelaFuncionario telafuncionario = new TelaFuncionario();
@@ -68,6 +70,8 @@ public class ControleLogin implements ActionListener, KeyListener {
             if (funcionario.getCargo() == 0) {
                 TelaGerente telagerente = new TelaGerente();
                 telagerente.montarTelaGerente(bd, estoque);
+                login.setText("");
+                senha.setText("");
             } else {
                 caixa.setLogin(login.getText());
                 TelaFuncionario telafuncionario = new TelaFuncionario();

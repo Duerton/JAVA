@@ -28,15 +28,20 @@ public class ControleVerificarDinheiro implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         janela.dispose();
+        try {
         float valorF = Float.parseFloat(valor.getText());
         float troco = venda.calcularTroco(valorF);
         if (troco == -1) {
             JOptionPane.showMessageDialog(null, "Valor insuficiente");
         } else {
-            finalizarVenda.setEnabled(true);
+            finalizarVenda.setEnabled(true);            
             pagamento.setEnabled(false);
             DecimalFormat df = new DecimalFormat("0.00");
             JOptionPane.showMessageDialog(null, "Troco: R$" + df.format(troco));
+            finalizarVenda.doClick();
+        }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Valor inválido");
         }
     }
 

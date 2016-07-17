@@ -65,7 +65,7 @@ public class TelaFuncionario {
         painelBotoes.add(consultar);
         painelBotoes.add(balanca);
         painelBotoes.add(pagamento);
-        painelBotoes.add(finalizarVenda);
+        //painelBotoes.add(finalizarVenda);
         painelBotoes.add(desconectar);
         painelGeral.add(painelBotoes, BorderLayout.EAST);
         
@@ -109,13 +109,13 @@ public class TelaFuncionario {
         
         
         balanca.addActionListener(new ControleIniciarBalanca(quantidade));
-        novaVenda.addActionListener(new ControleNovaVenda(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, balanca, nomeProduto, valorProduto, valorTotal, digitarCodigo, quantidade));
+        novaVenda.addActionListener(new ControleNovaVenda(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, balanca, digitarCodigo, quantidade));
         consultar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
         adicionar.addActionListener(new ControleAdicionar(estoque, caixa, itens, digitarCodigo, valorTotal, quantidade));
         adicionar.addActionListener(new ControleVisualizar(estoque, nomeProduto, valorProduto, digitarCodigo));
         remover.addActionListener(new ControleRemover(estoque, listaItens, itens, caixa, valorTotal));
         pagamento.addActionListener(new ControlePagamento(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, desconectar, balanca));
-        finalizarVenda.addActionListener(new ControleFinalizarVenda(caixa,adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, desconectar, balanca, itens, nomeProduto, valorProduto, valorTotal, digitarCodigo));
+        finalizarVenda.addActionListener(new ControleFinalizarVenda(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, desconectar, balanca, itens, nomeProduto, valorProduto, valorTotal, digitarCodigo, quantidade));
         desconectar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {

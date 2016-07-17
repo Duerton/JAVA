@@ -33,6 +33,6 @@ public class Item {
     @Override
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
-        return this.produto.getNome() + " ......................................... R$" + df.format(this.valorTotal) + "  x" + this.quantidade;
+        return this.produto.getNome() + " ......................................... " + "  x" + this.quantidade+ " R$ " +df.format(this.valorTotal) ;
     }
 }

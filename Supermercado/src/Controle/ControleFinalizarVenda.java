@@ -26,8 +26,9 @@ public class ControleFinalizarVenda implements ActionListener {
     private final JTextField valorProduto;
     private final JTextField valorTotal;
     private final JTextField digitarCodigo;
+    private final JTextField quantidade;
 
-    public ControleFinalizarVenda(Caixa caixa, JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton novaVenda, JButton desconectar, JButton balanca, DefaultListModel itens, JTextField nomeProduto, JTextField valorProduto, JTextField valorTotal, JTextField digitarCodigo) {
+    public ControleFinalizarVenda(Caixa caixa, JButton adicionar, JButton consultar, JButton remover, JButton pagamento, JButton finalizarVenda, JButton novaVenda, JButton desconectar, JButton balanca, DefaultListModel itens, JTextField nomeProduto, JTextField valorProduto, JTextField valorTotal, JTextField digitarCodigo, JTextField quantidade) {
         this.adicionar = adicionar;
         this.consultar = consultar;
         this.remover = remover;
@@ -42,6 +43,7 @@ public class ControleFinalizarVenda implements ActionListener {
         this.digitarCodigo = digitarCodigo;
         this.desconectar = desconectar;
         this.balanca = balanca;
+        this.quantidade = quantidade;
     }
 
     @Override
@@ -53,9 +55,6 @@ public class ControleFinalizarVenda implements ActionListener {
         valorProduto.setText("");
         valorTotal.setText("");
         digitarCodigo.setText("");
-        nomeProduto.setEditable(false);
-        valorProduto.setEditable(false);
-        valorTotal.setEditable(false);
         digitarCodigo.setEditable(false);
         adicionar.setEnabled(false);
         consultar.setEnabled(false);
@@ -65,6 +64,7 @@ public class ControleFinalizarVenda implements ActionListener {
         novaVenda.setEnabled(true);
         balanca.setEnabled(false);
         desconectar.setEnabled(true);
+        quantidade.setEnabled(false);
     }
 
 }

@@ -29,14 +29,19 @@ public class ControleVerificarCartao implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         janela.dispose();
+        try {
         int senhaI = Integer.parseInt(senha.getText());
         if(venda.finalizarVenda(senhaI)){
             finalizarVenda.setEnabled(true);
             pagamento.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Transação aceita");
+            finalizarVenda.doClick();
         }
         else {
             JOptionPane.showMessageDialog(null, "Transação incompleta");
+        }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Somente números");
         }
     }
     
