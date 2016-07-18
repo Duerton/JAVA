@@ -33,18 +33,26 @@ public class ControleAdicionar implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             Produto produto = estoque.buscarProduto(Integer.parseInt(digitarCodigo.getText()));
-            if (produto == null) {
-                //Efetuado tratamento em controleVisualizar
+            if (Float.parseFloat(quantidade.getText()) == 0) {
+                JOptionPane.showMessageDialog(null, "Quantidade inválida");
+            } else if (produto == null) {
+                //Tratamento efetuado em controleVisualizar
             } else {
-                Item item = new Item(produto, Float.parseFloat(quantidade.getText()));
+                Item item;
+                if (produto.getTipo() == 0) {
+                    item = new Item(produto, Float.parseFloat(quantidade.getText()));
+                } else {
+                    item = new Item(produto, Integer.parseInt(quantidade.getText()));
+                }
                 itens.addElement(item);
                 caixa.getVenda().adicionarProdutoVenda(item);
-                estoque.retirarPrateleira(produto, Integer.parseInt(quantidade.getText()));
+                estoque.retirarPrateleira(produto, Float.parseFloat(quantidade.getText()));
                 DecimalFormat df = new DecimalFormat("0.00");
                 valorTotal.setText(String.valueOf(df.format(caixa.getVenda().getValorTotal())));
             }
+
         } catch (NumberFormatException ex) {
-            //Efetuado tratamento em controleVisualizar
+            //Tratamento efetuado em controleVisualizar
         }
     }
 

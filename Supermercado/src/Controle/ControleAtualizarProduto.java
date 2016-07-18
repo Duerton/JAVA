@@ -14,25 +14,26 @@ public class ControleAtualizarProduto implements ActionListener{
     private final JTextField valor;
     private final JTextField codigo;
     private final JTextField quantidade;
+    private final JTextField tipo;
     
-    public ControleAtualizarProduto(Estoque estoque, JTextField nome, JTextField quantidade, JTextField codigo, JTextField valor){
+    public ControleAtualizarProduto(Estoque estoque, JTextField nome, JTextField quantidade, JTextField codigo, JTextField valor, JTextField tipo){
         this.estoque = estoque;
         this.nome = nome;
         this.codigo = codigo;
         this.quantidade = quantidade;
         this.valor = valor;
+        this.tipo = tipo;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         if(codigo.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "teste");
-            estoque.inserirProdutoUnidade(Float.parseFloat(valor.getText()), nome.getText(), Float.parseFloat(quantidade.getText()));            
+            estoque.inserirProduto(Float.parseFloat(valor.getText()), nome.getText(), Float.parseFloat(quantidade.getText()), Integer.parseInt(tipo.getText()));            
         }else{
-            JOptionPane.showMessageDialog(null, "teste2");
             Produto produto = estoque.buscarProduto(Integer.parseInt(codigo.getText()));
             estoque.inserirPrateleira(produto, Float.parseFloat(quantidade.getText()));            
         }
+        JOptionPane.showMessageDialog(null, "Produto inserido.");
     }
     
 }

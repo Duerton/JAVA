@@ -1,0 +1,67 @@
+|----------------- CDL SUPERMERCADOS ---------------|
+|---------------------------------------------------|
+|---------------- RELATORIO DE ESTOQUE -------------|
+| DATA: 18 de Julho de 2016                         |
+|        ESTOQUE DISPONIVEL - INÍCIO DO DIA         |
+ PRODUTO                               QUANTIDADE
+ Cenoura a granel kg       10
+ 0       2.85f
+ 10       Tomate a granel kg
+ 3.48f       0
+ Tapioca Da Terrinha 500g       10
+ 1       5.95f
+ 10       Alho a granel kg
+ 19.9f       0
+ Laranja-pera a granel kg       10
+ 0       2.99f
+ 10       Uva-vermelha s/ semente 500g
+ 4.99f       0
+ Manga nacional a granel kg       10
+ 0       7.99f
+ 10       Pera williams a granel kg
+ 7.99f       0
+ Guarana Antartica 2L       10
+ 1       3.49f
+ 10       Arroz Maximo 5kg
+ 14.95f       1
+ Cafe Coracoes 500g       10
+ 1       7.28f
+ 10       Alimento infantil Nestle 120g
+ 3.99f       1
+ File de Peito de Frango Seara 1kg       10
+ 1       3.99f
+ 10       Ketchup Hellman's Trad. 380g
+ 5.99f       1
+ Leite Condensado        10
+ 1       3.69f
+ 10       Pao de Forma Integral 500g
+ 5.49f       1
+|                                                   |
+|          ESTOQUE DISPONIVEL - FIM DO DIA          |
+ PRODUTO                               QUANTIDADE
+ Laranja-pera a granel kg       10
+ Mamao-formosa a granel kg       10
+ Alho a granel kg       10
+ Pepsi 2L       10
+ Maionese Arisco Trad. 500g       10
+ Cafe Coracoes 500g       10
+ Leite Condensado        10
+ Cenoura a granel kg       10
+ Manga nacional a granel kg       10
+ File de Peito de Frango Seara 1kg       10
+ Cafe Evolutto Extra Forte 500g       10
+ Ovo branco 12 unidades       10
+ Pera williams a granel kg       10
+ Alimento infantil Nestle 120g       10
+ Pao de Forma Integral 500g       10
+ Pao de Forma Trad. 500g       10
+ Tapioca Da Terrinha 500g       10
+ Guarana Antartica 2L       10
+ Arroz Maximo 5kg       10
+ Maca red importada a granel kg       10
+ Cebola a granel kg       10
+ Tomate a granel kg       10
+ Uva-vermelha s/ semente 500g       10
+ Ketchup Hellman's Trad. 380g       10
+|                                                   |
+|---------------------------------------------------|

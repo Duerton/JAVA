@@ -37,7 +37,7 @@ public class ControleNovaVenda implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         caixa.novaVenda();
         JOptionPane.showMessageDialog(null, "Nova venda iniciada");
-        quantidade.setEditable(true);
+        quantidade.setEnabled(true);
         adicionar.setEnabled(true);
         visualizar.setEnabled(true);
         finalizarVenda.setEnabled(false);
@@ -45,7 +45,7 @@ public class ControleNovaVenda implements ActionListener{
         pagamento.setEnabled(true);
         balanca.setEnabled(true);
         novaVenda.setEnabled(false);
-        digitarCodigo.setEditable(true);        
+        digitarCodigo.setEnabled(true);        
     }
     
 }

@@ -11,7 +11,7 @@ public class Item {
     public Item(Produto produto, float quantidade) {
         this.produto = produto;
         this.quantidade = quantidade;
-        valorTotal = this.quantidade * this.produto.getValorProd();
+        this.valorTotal = this.quantidade * this.produto.getValorProd();
     }
 
     public float getValorTotal() {

@@ -7,12 +7,12 @@ public class Venda {
 
     private final int idVenda;
     private static int totalIDVenda;
-    private Collection produtosCompra = new ArrayList();
+    private final Collection produtosCompra = new ArrayList();
     private float valorTotal = 0;
     private float troco;
     private String formaPagamento;
-    private int idCaixa;
-    private String loginFuncionario;
+    private final int idCaixa;
+    private final String loginFuncionario;
 
     public Venda(int idCaixa, String loginFuncionario) {
         Venda.totalIDVenda++;

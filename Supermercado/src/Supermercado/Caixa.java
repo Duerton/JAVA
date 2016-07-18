@@ -29,6 +29,10 @@ public class Caixa{
     public Venda getVenda(){
         return this.venda;
     }
+
+    public int getIdCaixa(){
+        return this.idCaixa;
+    }
     
     public void finalizarVenda(){
         NotaFiscal nota = new NotaFiscal(this.idCaixa, this.loginFuncionario, this.venda);

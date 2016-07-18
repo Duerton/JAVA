@@ -1,12 +1,13 @@
 |----------------- CDL SUPERMERCADOS ---------------|
 |---------------------------------------------------|
 |-------------------- NOTA FISCAL ------------------|
-| CAIXA: 3              DATA: 18 de Julho de 2016   |
+| CAIXA: 2              DATA: 18 de Julho de 2016   |
  UNIDADE             PRODUTO                   R$
-   1.0   Manga nacional a granel kg                    6.99
+   1.0   Cebola a granel kg                    2.85
+   0.48   Alho a granel kg                    9.552
                                                    
-                                   TOTAL: R$ 6.99
+                                   TOTAL: R$ 12.402
                                    TROCO: R$ 0.0
  FORMA DE PAGAMENTO: Cartao
- ATENDENTE: Duerton
+ ATENDENTE: Leonardo
 |---------------------------------------------------|

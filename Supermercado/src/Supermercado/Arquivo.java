@@ -10,7 +10,8 @@ public class Arquivo {
     private Float quantidade;
     private int cargo;
     private String login;
-    private String senha;    
+    private String senha;
+    private int tipo;    
 
     public Estoque getProdutos(Estoque estoque) {
         try {
@@ -25,7 +26,9 @@ public class Arquivo {
                 linha = lerArquivo.readLine();
                 quantidade = new Float(linha);
                 linha = lerArquivo.readLine();
-                estoque.inserirProdutoUnidade(valor, nome, quantidade);
+                tipo = new Integer(linha);
+                linha = lerArquivo.readLine();
+                estoque.inserirProduto(valor, nome, quantidade, tipo);
             } while (linha != null);
             arquivo.close();
         } catch (Exception e) {

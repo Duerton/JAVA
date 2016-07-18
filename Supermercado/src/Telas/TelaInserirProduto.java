@@ -33,6 +33,8 @@ public class TelaInserirProduto {
         JTextField quantidade = new JTextField(10);
         JLabel nomeL = new JLabel("Nome: ");
         JTextField nome = new JTextField(10);
+        JLabel tipoL = new JLabel("TIpo: ");
+        JTextField tipo = new JTextField(10);
         JPanel painelPreencher = new JPanel(new GridLayout(5, 2));
 
         painelPreencher.add(nomeL);
@@ -43,6 +45,8 @@ public class TelaInserirProduto {
         painelPreencher.add(codProduto);
         painelPreencher.add(quantidadeL);
         painelPreencher.add(quantidade);
+        painelPreencher.add(tipoL);
+        painelPreencher.add(tipo);
         painelPrincipal.add(painelPreencher, BorderLayout.WEST);
 
         painelBotoes.add(inserirNovoProduto);
@@ -53,7 +57,8 @@ public class TelaInserirProduto {
         painelPrincipal.add(painelBotoes, BorderLayout.EAST);
         frame.add(painelPrincipal);
 
-        valor.setEditable(false);
+        tipo.setEnabled(false);
+        valor.setEnabled(false);
         codProduto.setEnabled(false);
         voltar.setEnabled(false);
         nome.setEnabled(false);
@@ -64,10 +69,11 @@ public class TelaInserirProduto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nome.setEnabled(true);
+                tipo.setEnabled(true);
                 quantidade.setEnabled(true);
                 inserir.setEnabled(true);
                 voltar.setEnabled(true);
-                valor.setEditable(true);
+                valor.setEnabled(true);
                 inserirNovoProduto.setEnabled(false);
                 inserirQuantProduto.setEnabled(false);                  
             }
@@ -90,10 +96,11 @@ public class TelaInserirProduto {
             public void actionPerformed(ActionEvent e) {
                 codProduto.setEnabled(false);
                 voltar.setEnabled(false);
-                valor.setEditable(false);
+                valor.setEnabled(false);
                 nome.setEnabled(false);
                 quantidade.setEnabled(false);
                 inserir.setEnabled(false);
+                tipo.setEnabled(false);
                 inserirNovoProduto.setEnabled(true);
                 inserirQuantProduto.setEnabled(true);
             }
@@ -106,7 +113,7 @@ public class TelaInserirProduto {
             }            
         });
         
-        inserir.addActionListener(new ControleAtualizarProduto(estoque, nome, quantidade, codProduto, valor));
+        inserir.addActionListener(new ControleAtualizarProduto(estoque, nome, quantidade, codProduto, valor, tipo));
 
         frame.pack();
         frame.setLocationRelativeTo(null);
