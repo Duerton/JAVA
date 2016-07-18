@@ -36,9 +36,9 @@ public class TelaFuncionario {
     private JTextField valorTotal;
     private JTextField quantidade;
 
-    public void montarTelaFuncionario(BD bd, Estoque estoque, Caixa caixa) {
+    public void montarTelaFuncionario(BD bd, Estoque estoque, Caixa caixa, JFrame telaLogin) {
 
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Supermercado CLD Caixa " + caixa.getIdCaixa());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel painelGeral = new JPanel(new BorderLayout());
@@ -84,8 +84,8 @@ public class TelaFuncionario {
         painelCodigo.add(valorTotal);
         painelGeral.add(painelCodigo, BorderLayout.SOUTH);
 
-        nomeProduto = new JTextField(10);
-        valorProduto = new JTextField(10);
+        nomeProduto = new JTextField(15);
+        valorProduto = new JTextField(15);
         JLabel nome = new JLabel("Nome: ");
         JLabel valor = new JLabel("Valor: R$");
         JPanel painelDescricao = new JPanel(new GridLayout(10, 1));
@@ -104,9 +104,10 @@ public class TelaFuncionario {
         nomeProduto.setEditable(false);
         valorProduto.setEditable(false);
         valorTotal.setEditable(false);
-        digitarCodigo.setEditable(false);
-        quantidade.setEditable(false);
+        digitarCodigo.setEnabled(false);
+        quantidade.setEnabled(false);
         
+        telaLogin.setVisible(false);
         
         balanca.addActionListener(new ControleIniciarBalanca(quantidade));
         novaVenda.addActionListener(new ControleNovaVenda(caixa, adicionar, consultar, remover, pagamento, finalizarVenda, novaVenda, balanca, digitarCodigo, quantidade));
@@ -120,6 +121,7 @@ public class TelaFuncionario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
+                telaLogin.setVisible(true);
             }            
         });
 

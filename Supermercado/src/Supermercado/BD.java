@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -66,8 +67,9 @@ public class BD {
     public void gerarRelatorioVendas() {
         FileWriter relatorio;
         DateFormat dat = DateFormat.getDateInstance(DateFormat.LONG, new Locale("pt", "BR"));
+        DecimalFormat df = new DecimalFormat("0.00");
         try {
-            relatorio = new FileWriter(new File("RelatorioVendas.txt"));
+            relatorio = new FileWriter(new File("RelatorioVendas " + dat.format(new Date()) + ".txt"));
             PrintWriter escreverArquivo = new PrintWriter(relatorio);
             escreverArquivo.write("|----------------- CDL SUPERMERCADOS ---------------|\n");
             escreverArquivo.write("|---------------------------------------------------|\n");
@@ -75,7 +77,7 @@ public class BD {
             escreverArquivo.write("| DATA: " + dat.format(new Date()) + "                         |\n");
             escreverArquivo.write(" CAIXA            FUNCIONARIO                  VALOR\n");
             for (Venda venda : listaVendas) {
-                escreverArquivo.write(" " + venda.getIdCaixa() + "                " + venda.getLoginFuncionario() + "                  " + venda.getValorTotal() + "\n");
+                escreverArquivo.write(" " + venda.getIdCaixa() + "                " + venda.getLoginFuncionario() + "                  " + df.format(venda.getValorTotal()) + "\n");
             }
             escreverArquivo.write("|---------------------------------------------------|\n");
             

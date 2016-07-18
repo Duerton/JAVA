@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -21,13 +22,15 @@ public class ControleLogin implements ActionListener, KeyListener {
     private final BD bd;
     private final Estoque estoque;
     private final Caixa caixa;
+    private final JFrame telaLogin;
 
-    public ControleLogin(JTextField login, JPasswordField senha, BD bd, Estoque estoque, Caixa caixa) {
+    public ControleLogin(JTextField login, JPasswordField senha, BD bd, Estoque estoque, Caixa caixa, JFrame telaLogin) {
         this.login = login;
         this.senha = senha;
         this.bd = bd;
         this.estoque = estoque;
         this.caixa = caixa;
+        this.telaLogin = telaLogin;
     }
 
     @Override
@@ -38,13 +41,13 @@ public class ControleLogin implements ActionListener, KeyListener {
             Funcionario funcionario = bd.getFuncionario(aux);
             if (funcionario.getCargo() == 0) {
                 TelaGerente telagerente = new TelaGerente();
-                telagerente.montarTelaGerente(bd, estoque);
+                telagerente.montarTelaGerente(bd, estoque,caixa,telaLogin);
                 login.setText("");
                 senha.setText("");
             } else {
                 caixa.setLogin(login.getText());
                 TelaFuncionario telafuncionario = new TelaFuncionario();
-                telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+                telafuncionario.montarTelaFuncionario(bd, estoque, caixa,telaLogin);
                 login.setText("");
                 senha.setText("");
             }
@@ -69,13 +72,13 @@ public class ControleLogin implements ActionListener, KeyListener {
             Funcionario funcionario = bd.getFuncionario(aux);
             if (funcionario.getCargo() == 0) {
                 TelaGerente telagerente = new TelaGerente();
-                telagerente.montarTelaGerente(bd, estoque);
+                telagerente.montarTelaGerente(bd, estoque,caixa,telaLogin);
                 login.setText("");
                 senha.setText("");
             } else {
                 caixa.setLogin(login.getText());
                 TelaFuncionario telafuncionario = new TelaFuncionario();
-                telafuncionario.montarTelaFuncionario(bd, estoque, caixa);
+                telafuncionario.montarTelaFuncionario(bd, estoque, caixa,telaLogin);
                 login.setText("");
                 senha.setText("");
             }

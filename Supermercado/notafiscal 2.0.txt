@@ -3,10 +3,12 @@
 |-------------------- NOTA FISCAL ------------------|
 | CAIXA: 3              DATA: 18 de Julho de 2016   |
  UNIDADE             PRODUTO                   R$
-   1.0   Manga nacional a granel kg                    6.99
+   1.0   Cebola a granel kg                    2.85
+   2.0   Tomate a granel kg                    6.96
+   0.36   Tapioca Da Terrinha 500g                    1.7964
                                                    
-                                   TOTAL: R$ 6.99
+                                   TOTAL: R$ 11.6064
                                    TROCO: R$ 0.0
  FORMA DE PAGAMENTO: Cartao
- ATENDENTE: Duerton
+ ATENDENTE: Catarina
 |---------------------------------------------------|

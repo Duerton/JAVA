@@ -25,7 +25,7 @@ public class TelaLogin {
     public void montarTelaLogin(BD bd, Estoque estoque, Caixa caixa) {
 
 
-        frame = new JFrame("Sistema Supermercado");
+        frame = new JFrame("Sistema Supermercado Caixa " + caixa.getIdCaixa());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         painelLogin = new JPanel(new GridLayout(3, 2));
         frame.add(painelLogin);
@@ -42,8 +42,8 @@ public class TelaLogin {
         painelLogin.add(confirma);
         painelLogin.add(sair);
         
-        confirma.addActionListener(new ControleLogin(login, senha, bd, estoque, caixa));
-        confirma.addKeyListener(new ControleLogin(login, senha, bd, estoque, caixa));
+        confirma.addActionListener(new ControleLogin(login, senha, bd, estoque, caixa,frame));
+        confirma.addKeyListener(new ControleLogin(login, senha, bd, estoque, caixa,frame));
         sair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

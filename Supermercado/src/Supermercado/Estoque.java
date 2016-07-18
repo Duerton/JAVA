@@ -27,8 +27,8 @@ public class Estoque {
         FileReader arquivo;
         DateFormat dat = DateFormat.getDateInstance(DateFormat.LONG, new Locale("pt", "BR"));
         try {
-            estoqueFinalDia = new FileWriter(new File("RelatorioEstoque.txt"));
-            arquivo = new FileReader("Estoque.txt");
+            estoqueFinalDia = new FileWriter(new File("RelatorioEstoque " + dat.format(new Date()) + ".txt"));
+            arquivo = new FileReader("Produtos.txt");
             BufferedReader estoqueInicioDia = new BufferedReader(arquivo);
             PrintWriter escreverArquivo = new PrintWriter(estoqueFinalDia);
             escreverArquivo.write("|----------------- CDL SUPERMERCADOS ---------------|\n");
@@ -39,16 +39,19 @@ public class Estoque {
             escreverArquivo.write(" PRODUTO                               QUANTIDADE\n"); 
             String linha = estoqueInicioDia.readLine();
             do {
-                escreverArquivo.write("       "+linha);
-                linha = estoqueInicioDia.readLine();
+                escreverArquivo.write(" " + linha);
+                for (int i = 0; i < 2; i++) {
+                    linha = estoqueInicioDia.readLine();   
+                }
                 escreverArquivo.write("       "+linha+"\n");
+                linha = estoqueInicioDia.readLine();
             } while (linha != null);
             escreverArquivo.write("|                                                   |\n");
             escreverArquivo.write("|          ESTOQUE DISPONIVEL - FIM DO DIA          |\n");
             escreverArquivo.write(" PRODUTO                               QUANTIDADE\n"); 
             Set<Map.Entry<Produto, Float>> entrySet = prateleiras.entrySet();
             for(Map.Entry<Produto,Float> entrada : entrySet){
-                escreverArquivo.write(" " + entrada.getKey() + "       " + entrada.getValue() +       "\n");
+                escreverArquivo.write(" " + entrada.getKey() + "       " + entrada.getValue().intValue() +       "\n");
             }       
             escreverArquivo.write("|                                                   |\n");
             escreverArquivo.write("|---------------------------------------------------|\n");
@@ -65,8 +68,8 @@ public class Estoque {
         return prateleiras.get(produto);
     }
     
-    public void inserirProdutoUnidade(float valor, String nome, Float quantidade) {
-        Produto produto = new ProdutoUnidade(valor, nome);
+    public void inserirProduto(float valor, String nome, Float quantidade, int tipo) {
+        Produto produto = new Produto(valor, nome, tipo);
         this.identificador.put(produto.getCodigo(), produto);
         this.prateleiras.put(produto, quantidade);
     }
@@ -77,7 +80,7 @@ public class Estoque {
         prateleiras.put(produto, quant);
     }
 
-    public boolean retirarPrateleira(Produto produto, Integer quantidade) {
+    public boolean retirarPrateleira(Produto produto, Float quantidade) {
         Float quant = prateleiras.get(produto);
         quant -= quantidade;
         if (quant < 0) {

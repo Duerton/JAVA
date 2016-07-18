@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/main.java</file>
-            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Supermercado/Threads.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleRemover.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleAdicionar.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Telas/TelaFuncionario.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Telas/TelaInserirProduto.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleAtualizarProduto.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleNovaVenda.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Controle/ControleFinalizarVenda.java</file>
+            <file>file:/C:/Users/Duerton/Desktop/GitHub/JAVA/Supermercado/src/Telas/TelaGerente.java</file>
         </group>
     </open-files>
 </project-private>

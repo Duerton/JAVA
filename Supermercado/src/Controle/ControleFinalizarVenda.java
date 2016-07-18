@@ -49,13 +49,13 @@ public class ControleFinalizarVenda implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         caixa.finalizarVenda();
-        JOptionPane.showMessageDialog(null, "Venda Finalizada");
+        JOptionPane.showMessageDialog(null, "Nota Fiscal Gerada");
         itens.clear();
         nomeProduto.setText("");
         valorProduto.setText("");
         valorTotal.setText("");
         digitarCodigo.setText("");
-        digitarCodigo.setEditable(false);
+        digitarCodigo.setEnabled(false);
         adicionar.setEnabled(false);
         consultar.setEnabled(false);
         finalizarVenda.setEnabled(false);
